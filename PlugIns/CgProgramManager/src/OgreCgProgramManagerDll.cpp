@@ -52,6 +52,7 @@ namespace Ogre {
     }
 #endif
 
+/*
     void checkForCgError(const String& ogreMethod, const String& errorTextPrefix, CGcontext context)
     {
         CGerror error = cgGetError();
@@ -66,6 +67,13 @@ namespace Ogre {
             }
             OGRE_EXCEPT(Exception::ERR_INTERNAL_ERROR, msg, ogreMethod);
         }
+    }
+*/
+    void checkForCgError(const String& ogreMethod, const String& errorTextPrefix, CGcontext context)
+    {
+        const char *msg = cgGetLastListing(context);
+        if (msg!=NULL)
+            std::cout << std::string(msg) << std::endl;
     }
 
 }

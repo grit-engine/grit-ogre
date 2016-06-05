@@ -120,8 +120,7 @@ namespace Ogre {
 	{
 		StringVector args;
 		if (!mCompileArgs.empty())
-			args = StringUtil::split(mCompileArgs);
-
+			args = StringUtil::splitExceptQuotes(mCompileArgs);
 		StringVector::const_iterator i;
 		if (mSelectedCgProfile == CG_PROFILE_VS_1_1)
 		{
