@@ -142,6 +142,8 @@ namespace Ogre {
         SkeletonPtr mOldSkeleton;
         SkeletonDefPtr mSkeleton;
 
+        unsigned mNumBlendWeightsPerVertex;
+
        
         VertexBoneAssignmentList mBoneAssignments;
 
@@ -281,6 +283,9 @@ namespace Ogre {
         SubMeshIterator getSubMeshIterator(void)
         { return SubMeshIterator(mSubMeshList.begin(), mSubMeshList.end()); }
       
+
+        unsigned getNumBlendWeightsPerVertex()
+        { return mNumBlendWeightsPerVertex; }
         /** Shared vertex data.
         @remarks
             This vertex data can be shared among multiple submeshes. SubMeshes may not have
