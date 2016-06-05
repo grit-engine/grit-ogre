@@ -54,6 +54,7 @@ namespace Ogre {
         : Resource(creator, name, handle, group, isManual, loader),
         mBoundRadius(0.0f),
         mBoneBoundingRadius(0.0f),
+        mNumBlendWeightsPerVertex(0),
         mBoneAssignmentsOutOfDate(false),
         mLodStrategy(LodStrategyManager::getSingleton().getDefaultStrategy()),
         mHasManualLodLevel(false),
@@ -803,6 +804,7 @@ namespace Ogre {
         IndexMap& blendIndexToBoneIndexMap,
         VertexData* targetVertexData)
     {
+        mNumBlendWeightsPerVertex = numBlendWeightsPerVertex;
         // Create or reuse blend weight / indexes buffer
         // Indices are always a UBYTE4 no matter how many weights per vertex
         // Weights are more specific though since they are Reals
