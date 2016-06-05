@@ -52,6 +52,7 @@ namespace Ogre {
         const String& group, bool isManual, ManualResourceLoader* loader)
         : Resource(creator, name, handle, group, isManual, loader),
         mBoundRadius(0.0f),
+        mNumBlendWeightsPerVertex(0),
         mBoneAssignmentsOutOfDate(false),
         mIsLodManual(false),
         mNumLods(1),
@@ -708,6 +709,7 @@ namespace Ogre {
         IndexMap& blendIndexToBoneIndexMap,
         VertexData* targetVertexData)
     {
+        mNumBlendWeightsPerVertex = numBlendWeightsPerVertex;
         // Create or reuse blend weight / indexes buffer
         // Indices are always a UBYTE4 no matter how many weights per vertex
         // Weights are more specific though since they are Reals
