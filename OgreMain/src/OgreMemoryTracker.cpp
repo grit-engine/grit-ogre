@@ -32,15 +32,6 @@ THE SOFTWARE.
 #include "OgreMemoryTracker.h"
 #include "OgreString.h"
 
-#if OGRE_PLATFORM == OGRE_PLATFORM_WIN32 || OGRE_PLATFORM == OGRE_PLATFORM_WINRT
-#   include <windows.h>
-#	define Ogre_OutputCString(str) ::OutputDebugStringA(str)
-#	define Ogre_OutputWString(str) ::OutputDebugStringW(str)
-#else
-#	define Ogre_OutputCString(str) std::cerr << str
-#	define Ogre_OutputWString(str) std::cerr << str
-#endif
-
 namespace Ogre
 {
 	
