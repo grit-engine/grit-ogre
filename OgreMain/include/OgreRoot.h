@@ -855,6 +855,9 @@ namespace Ogre
             next frame. */
         unsigned long getNextFrameNumber(void) const { return mNextFrame; }
 
+        void setNextFrameNumber(unsigned long v) { mNextFrame = v; }
+
+
         /** Returns the scene manager currently being used to render a frame.
         @remarks
             This is only intended for internal use; it is only valid during the
