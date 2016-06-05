@@ -110,9 +110,9 @@ namespace Ogre {
 WGLEWContext * wglewGetContext()
 {
     using namespace Ogre;
-    static OGRE_THREAD_POINTER_VAR(WGLEWContext, WGLEWContextsPtr);
+    static OGRE_THREAD_POINTER_STATIC_VAR(WGLEWContext, WGLEWContextsPtr);
 
-    WGLEWContext * currentWGLEWContextsPtr = OGRE_THREAD_POINTER_GET(WGLEWContextsPtr);
+    WGLEWContext * currentWGLEWContextsPtr = OGRE_THREAD_POINTER_STATIC_GET(WGLEWContextsPtr);
     if (currentWGLEWContextsPtr == NULL)
     {
         currentWGLEWContextsPtr = new WGLEWContext();

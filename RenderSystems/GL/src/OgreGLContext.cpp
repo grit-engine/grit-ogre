@@ -50,9 +50,9 @@ namespace Ogre {
 GLEWContext * glewGetContext()
 {
     using namespace Ogre;
-    static OGRE_THREAD_POINTER_VAR(GLEWContext, GLEWContextsPtr);
+    static OGRE_THREAD_POINTER_STATIC_VAR(GLEWContext, GLEWContextsPtr);
 
-    GLEWContext * currentGLEWContextsPtr =  OGRE_THREAD_POINTER_GET(GLEWContextsPtr);
+    GLEWContext * currentGLEWContextsPtr =  OGRE_THREAD_POINTER_STATIC_GET(GLEWContextsPtr);
     if (currentGLEWContextsPtr == NULL)
     {
         currentGLEWContextsPtr = new GLEWContext();

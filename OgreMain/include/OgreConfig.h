@@ -150,7 +150,10 @@ OGRE_THREAD_PROVIDER = 1
 OGRE_THREAD_PROVIDER = 2
     Poco libraries provide threading functionality.
 OGRE_THREAD_PROVIDER = 3
+<<<<<<< HEAD
     TBB library provides threading functionality.
+OGRE_THREAD_PROVIDER = 4
+    C++11 standard library provides threading functionality.
 */
 #ifndef OGRE_THREAD_PROVIDER
 #define OGRE_THREAD_PROVIDER 0

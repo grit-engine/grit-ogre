@@ -130,6 +130,13 @@ namespace Ogre {
     typedef unsigned int uint;
     typedef unsigned long ulong;
 
+	// Useful threading defines
+}
+
+#include "Threading/OgreThreadDefines.h"
+
+namespace Ogre {
+
     #if __cplusplus >= 201103L
     #define register
     #endif
