@@ -167,15 +167,23 @@ namespace Ogre {
     {
         if (mCachedTransformOutOfDate)
         {
+/*
             // Use derived values
             mCachedTransform.makeTransform(
                 _getDerivedPosition(),
                 _getDerivedScale(),
                 _getDerivedOrientation());
             mCachedTransformOutOfDate = false;
+*/
         }
         return mCachedTransform;
     }
+    void Node::overrideCachedTransform (const Ogre::Matrix4 &mat)
+    {
+        mCachedTransform = mat;
+        mCachedTransformOutOfDate = false;
+    }
+
     //-----------------------------------------------------------------------
     void Node::_update(bool updateChildren, bool parentHasChanged)
     {

@@ -250,6 +250,8 @@ namespace Ogre {
 
         virtual ~Node();  
 
+        void overrideCachedTransform (const Ogre::Matrix4 &mat);
+
         /** Returns the name of the node. */
         const String& getName(void) const;
 
