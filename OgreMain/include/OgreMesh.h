@@ -141,6 +141,8 @@ namespace Ogre {
         String mSkeletonName;
         SkeletonPtr mSkeleton;
 
+        unsigned mNumBlendWeightsPerVertex;
+
        
         VertexBoneAssignmentList mBoneAssignments;
 
@@ -296,6 +298,9 @@ namespace Ogre {
         const SubMeshList& getSubMeshes() const {
             return mSubMeshList;
         }
+
+        unsigned getNumBlendWeightsPerVertex()
+        { return mNumBlendWeightsPerVertex; }
 
         /** Shared vertex data.
         @remarks
