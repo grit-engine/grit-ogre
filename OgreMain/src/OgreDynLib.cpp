@@ -34,10 +34,6 @@ THE SOFTWARE.
 #include "OgreStringConverter.h"
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_WIN32 || OGRE_PLATFORM == OGRE_PLATFORM_WINRT
-#  define WIN32_LEAN_AND_MEAN
-#  if !defined(NOMINMAX) && defined(_MSC_VER)
-#	define NOMINMAX // required to stop windows.h messing up std::min
-#  endif
 #  include <windows.h>
 #endif
 
