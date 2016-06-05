@@ -405,6 +405,7 @@ namespace Ogre
 				{
 					// was previously fullscreen, just changing the resolution
 					SetWindowPos(mHWnd, HWND_TOPMOST, mLeft, mTop, width, height, SWP_NOACTIVATE);
+                        mSwitchingFullscreen = true;
 				}
 				else
 				{
@@ -488,6 +489,12 @@ namespace Ogre
 
 			ULONG screenw = monitorInfo.rcWork.right  - monitorInfo.rcWork.left;
 			ULONG screenh = monitorInfo.rcWork.bottom - monitorInfo.rcWork.top;
+
+            // When switching from a low fullscreen res to windowed mode in a high
+            // res desktop need to release this low res constraint on the window
+            // region otherwise we will not be able to make the window larger
+            // than the low fullscreen res we were just at
+            SetWindowRgn(mHWnd, NULL, TRUE);
 
 			int left = screenw > winWidth ? ((screenw - winWidth) / 2) : 0;
 			int top = screenh > winHeight ? ((screenh - winHeight) / 2) : 0;
