@@ -126,6 +126,33 @@ namespace Ogre {
 
         return ret;
     }
+    vector<String>::type StringUtil::splitExceptQuotes( const String& str, const String& delims, unsigned int maxSplits)
+    {
+        vector<String>::type ret;
+        // Pre-allocate some space for performance
+        ret.reserve(maxSplits ? maxSplits+1 : 10);    // 10 is guessed capacity for most case
+
+        unsigned int numSplits = 0;
+
+        ret.push_back(String());
+        String *current = &ret[numSplits];
+        bool in_quotes = false;
+        for (size_t i=0 ; i<str.length() ; ++i) {
+            char c = str[i];
+            if (c=='\"') {
+                in_quotes = !in_quotes;
+                continue;
+            }
+            if (in_quotes || delims.find(c)==String::npos || (maxSplits && numSplits == maxSplits)) {
+                current->append(1,c);
+                continue;
+            }
+            ret.push_back(String());
+            current = &ret[++numSplits];
+        }
+
+        return ret;
+    }
 	//-----------------------------------------------------------------------
 	StringVector StringUtil::tokenise( const String& str, const String& singleDelims, const String& doubleDelims, unsigned int maxSplits)
 	{

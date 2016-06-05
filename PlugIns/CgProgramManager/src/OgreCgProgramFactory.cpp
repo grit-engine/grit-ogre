@@ -44,7 +44,7 @@ namespace Ogre {
     //-----------------------------------------------------------------------
     CgProgramFactory::~CgProgramFactory()
     {
-        cgDestroyContext(mCgContext);
+        //cgDestroyContext(mCgContext);
         // Check for errors
         checkForCgError("CgProgramFactory::~CgProgramFactory", 
             "Unable to destroy Cg context: ", mCgContext);
