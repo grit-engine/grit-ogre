@@ -201,6 +201,15 @@ namespace Ogre {
         // Populate compile flags
         DWORD compileFlags = 0;
 
+        while (true) {
+                Ogre::String::size_type c = mSource.find("vFace.x",0);
+                if (c!=Ogre::String::npos) {
+                        mSource.replace(c,7,"vFace");
+                        continue;
+                }
+                break;
+        }
+        
         // Create the shader
         // Assemble source into microcode
         LPD3DXBUFFER microcode;
