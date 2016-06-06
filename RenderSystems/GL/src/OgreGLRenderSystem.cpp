@@ -394,7 +394,7 @@ namespace Ogre {
 				rsc->addShaderProfile("vp40");
 			}
 
-			if (GLEW_NV_vertex_program4)
+			if (GLEW_NV_vertex_program4 || GLEW_NV_gpu_program4)
 			{
 				rsc->addShaderProfile("gp4vp");
 				rsc->addShaderProfile("gpu_vp");
