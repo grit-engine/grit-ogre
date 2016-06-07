@@ -61,7 +61,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="OgreMain\src\OgreDualQuaternion.cpp" />
-    <ClCompile Include="OgreMain\src\OgreETC1Codec.cpp" />
     <ClCompile Include="OgreMain\src\OgreHardwareCounterBuffer.cpp" />
     <ClCompile Include="OgreMain\src\OgreHardwareUniformBuffer.cpp" />
     <ClCompile Include="OgreMain\src\OgreProgressiveMeshGenerator.cpp" />
@@ -328,9 +327,6 @@
     <ClCompile Include="OgreMain\src\OgreVertexIndexData.cpp" />
     <ClCompile Include="OgreMain\src\OgreViewport.cpp" />
     <ClCompile Include="RenderSystems\GL\src\win32\OgreWin32Context.cpp" />
-    <ClCompile Include="RenderSystems\GL\src\OgreWin32GLSupport.cpp" />
-    <ClCompile Include="RenderSystems\GL\src\OgreWin32RenderTexture.cpp" />
-    <ClCompile Include="RenderSystems\GL\src\OgreWin32Window.cpp" />
     <ClCompile Include="OgreMain\src\OgreWindowEventUtilities.cpp" />
     <ClCompile Include="OgreMain\src\OgreWireBoundingBox.cpp" />
     <ClCompile Include="OgreMain\src\OgreWorkQueue.cpp" />
@@ -346,6 +342,9 @@
     <ClCompile Include="RenderSystems\GL\src\nvparse\vs1.0_inst.cpp" />
     <ClCompile Include="RenderSystems\GL\src\nvparse\vs1.0_inst_list.cpp" />
     <ClCompile Include="RenderSystems\GL\src\nvparse\vsp1.0_impl.cpp" />
+    <ClCompile Include="RenderSystems\GL\src\Win32\OgreWin32GLSupport.cpp" />
+    <ClCompile Include="RenderSystems\GL\src\Win32\OgreWin32RenderTexture.cpp" />
+    <ClCompile Include="RenderSystems\GL\src\Win32\OgreWin32Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OgreMain\include\asm_math.h" />
@@ -401,7 +400,6 @@
     <ClInclude Include="OgreMain\include\OgreEdgeListBuilder.h" />
     <ClInclude Include="OgreMain\include\OgreEntity.h" />
     <ClInclude Include="OgreMain\include\OgreErrorDialog.h" />
-    <ClInclude Include="OgreMain\include\OgreETC1Codec.h" />
     <ClInclude Include="OgreMain\include\OgreException.h" />
     <ClInclude Include="OgreMain\include\OgreExternalTextureSource.h" />
     <ClInclude Include="OgreMain\include\OgreExternalTextureSourceManager.h" />
