@@ -60,6 +60,8 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="OgreMain\src\OgreArchive.cpp" />
+    <ClCompile Include="OgreMain\src\OgreAtomicScalar.cpp" />
     <ClCompile Include="OgreMain\src\OgreDualQuaternion.cpp" />
     <ClCompile Include="OgreMain\src\OgreHardwareCounterBuffer.cpp" />
     <ClCompile Include="OgreMain\src\OgreHardwareUniformBuffer.cpp" />
@@ -184,6 +186,7 @@
     <ClCompile Include="RenderSystems\GL\src\GLSL\src\OgreGLSLPreprocessor.cpp" />
     <ClCompile Include="RenderSystems\GL\src\GLSL\src\OgreGLSLProgram.cpp" />
     <ClCompile Include="RenderSystems\GL\src\GLSL\src\OgreGLSLProgramFactory.cpp" />
+    <ClCompile Include="RenderSystems\GL\src\OgreGLStateCacheManager.cpp" />
     <ClCompile Include="RenderSystems\GL\src\OgreGLSupport.cpp" />
     <ClCompile Include="RenderSystems\GL\src\OgreGLTexture.cpp" />
     <ClCompile Include="RenderSystems\GL\src\OgreGLTextureManager.cpp" />
@@ -326,6 +329,9 @@
     <ClCompile Include="OgreMain\src\OgreVector4.cpp" />
     <ClCompile Include="OgreMain\src\OgreVertexIndexData.cpp" />
     <ClCompile Include="OgreMain\src\OgreViewport.cpp" />
+    <ClCompile Include="RenderSystems\GL\src\OgreGLUniformCache.cpp" />
+    <ClCompile Include="RenderSystems\GL\src\StateCacheManager\OgreGLNullStateCacheManagerImp.cpp" />
+    <ClCompile Include="RenderSystems\GL\src\StateCacheManager\OgreGLNullUniformCacheImp.cpp" />
     <ClCompile Include="RenderSystems\GL\src\win32\OgreWin32Context.cpp" />
     <ClCompile Include="OgreMain\src\OgreWindowEventUtilities.cpp" />
     <ClCompile Include="OgreMain\src\OgreWireBoundingBox.cpp" />
