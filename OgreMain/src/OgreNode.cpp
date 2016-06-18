@@ -121,6 +121,11 @@ namespace Ogre {
         }
     }
     //-----------------------------------------------------------------------
+    void Node::overrideCachedTransform (const Ogre::Matrix4 &mat)
+    {
+        mTransform.mDerivedTransform[mTransform.mIndex] = mat;
+    }
+    //-----------------------------------------------------------------------
     Node* Node::getParent(void) const
     {
         return mParent;

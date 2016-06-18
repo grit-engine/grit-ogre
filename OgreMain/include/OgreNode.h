@@ -194,6 +194,13 @@ namespace Ogre {
 
         virtual ~Node();
 
+        /** Sets the derived transform, essentially overriding the Ogre scenegraph.
+        @remarks
+            This is useful because Ogre does not implement non-uniform scale properly.  Having this
+            option allows using an external scenegraph.
+        */
+        void overrideCachedTransform (const Ogre::Matrix4 &mat);
+
         /** Sets a custom name for this node. Doesn't have to be unique */
         void setName( const String &name )                          { mName = name; }
 
