@@ -1,4 +1,5 @@
 OGRESHARED_WEAK_CPP_SRCS= \
+	OgreMain/src/Animation/OgreBone.cpp \
 	OgreMain/src/GLX/OgreConfigDialog.cpp \
 	OgreMain/src/GLX/OgreErrorDialog.cpp \
 	OgreMain/src/GLX/OgreTimer.cpp \
@@ -15,12 +16,10 @@ OGRESHARED_WEAK_CPP_SRCS= \
 	OgreMain/src/OgreBillboard.cpp \
 	OgreMain/src/OgreBillboardParticleRenderer.cpp \
 	OgreMain/src/OgreBillboardSet.cpp \
-	OgreMain/src/OgreBone.cpp \
 	OgreMain/src/OgreCamera.cpp \
 	OgreMain/src/OgreCodec.cpp \
 	OgreMain/src/OgreColourValue.cpp \
 	OgreMain/src/OgreCommon.cpp \
-	OgreMain/src/OgreCompositionPass.cpp \
 	OgreMain/src/OgreCompositionTargetPass.cpp \
 	OgreMain/src/OgreCompositionTechnique.cpp \
 	OgreMain/src/OgreCompositorChain.cpp \
@@ -191,7 +190,54 @@ OGRESHARED_WEAK_CPP_SRCS= \
 
 OGRE_WEAK_CPP_SRCS= \
 	$(OGRESHARED_WEAK_CPP_SRCS) \
+	PlugIns/CgProgramManager/src/OgreCgFxScriptLoader.cpp \
+	PlugIns/CgProgramManager/src/OgreCgPlugin.cpp \
+	PlugIns/CgProgramManager/src/OgreCgProgram.cpp \
+	PlugIns/CgProgramManager/src/OgreCgProgramFactory.cpp \
+	PlugIns/CgProgramManager/src/OgreCgProgramManagerDll.cpp \
+	PlugIns/OctreeSceneManager/src/OgreOctreeCamera.cpp \
+	PlugIns/OctreeSceneManager/src/OgreOctree.cpp \
+	PlugIns/OctreeSceneManager/src/OgreOctreeNode.cpp \
+	PlugIns/OctreeSceneManager/src/OgreOctreePlugin.cpp \
+	PlugIns/OctreeSceneManager/src/OgreOctreeSceneManager.cpp \
+	PlugIns/OctreeSceneManager/src/OgreOctreeSceneQuery.cpp \
+	RenderSystems/GL/src/atifs/src/ATI_FS_GLGpuProgram.cpp \
+	RenderSystems/GL/src/atifs/src/Compiler2Pass.cpp \
+	RenderSystems/GL/src/atifs/src/ps_1_4.cpp \
 	RenderSystems/GL/src/glew.cpp \
+	RenderSystems/GL/src/GLSL/src/OgreGLSLExtSupport.cpp \
+	RenderSystems/GL/src/GLSL/src/OgreGLSLGpuProgram.cpp \
+	RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgram.cpp \
+	RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgramManager.cpp \
+	RenderSystems/GL/src/GLSL/src/OgreGLSLPreprocessor.cpp \
+	RenderSystems/GL/src/GLSL/src/OgreGLSLProgram.cpp \
+	RenderSystems/GL/src/GLSL/src/OgreGLSLProgramFactory.cpp \
+	RenderSystems/GL/src/GLX/OgreGLXContext.cpp \
+	RenderSystems/GL/src/GLX/OgreGLXGLSupport.cpp \
+	RenderSystems/GL/src/GLX/OgreGLXRenderTexture.cpp \
+	RenderSystems/GL/src/GLX/OgreGLXWindow.cpp \
+	RenderSystems/GL/src/nvparse/avp1.0_impl.cpp \
+	RenderSystems/GL/src/nvparse/nvparse.cpp \
+	RenderSystems/GL/src/nvparse/nvparse_errors.cpp \
+	RenderSystems/GL/src/nvparse/_ps1.0_lexer.cpp \
+	RenderSystems/GL/src/nvparse/_ps1.0_parser.cpp \
+	RenderSystems/GL/src/nvparse/ps1.0_program.cpp \
+	RenderSystems/GL/src/nvparse/rc1.0_combiners.cpp \
+	RenderSystems/GL/src/nvparse/rc1.0_final.cpp \
+	RenderSystems/GL/src/nvparse/rc1.0_general.cpp \
+	RenderSystems/GL/src/nvparse/_rc1.0_lexer.cpp \
+	RenderSystems/GL/src/nvparse/_rc1.0_parser.cpp \
+	RenderSystems/GL/src/nvparse/ts1.0_inst.cpp \
+	RenderSystems/GL/src/nvparse/ts1.0_inst_list.cpp \
+	RenderSystems/GL/src/nvparse/_ts1.0_lexer.cpp \
+	RenderSystems/GL/src/nvparse/_ts1.0_parser.cpp \
+	RenderSystems/GL/src/nvparse/vcp1.0_impl.cpp \
+	RenderSystems/GL/src/nvparse/vp1.0_impl.cpp \
+	RenderSystems/GL/src/nvparse/vs1.0_inst.cpp \
+	RenderSystems/GL/src/nvparse/vs1.0_inst_list.cpp \
+	RenderSystems/GL/src/nvparse/_vs1.0_lexer.cpp \
+	RenderSystems/GL/src/nvparse/_vs1.0_parser.cpp \
+	RenderSystems/GL/src/nvparse/vsp1.0_impl.cpp \
 	RenderSystems/GL/src/OgreGLATIFSInit.cpp \
 	RenderSystems/GL/src/OgreGLContext.cpp \
 	RenderSystems/GL/src/OgreGLDefaultHardwareBufferManager.cpp \
@@ -220,464 +266,415 @@ OGRE_WEAK_CPP_SRCS= \
 	RenderSystems/GL/src/OgreGLUniformCache.cpp \
 	RenderSystems/GL/src/StateCacheManager/OgreGLNullStateCacheManagerImp.cpp \
 	RenderSystems/GL/src/StateCacheManager/OgreGLNullUniformCacheImp.cpp \
-	RenderSystems/GL/src/nvparse/avp1.0_impl.cpp \
-	RenderSystems/GL/src/nvparse/nvparse.cpp \
-	RenderSystems/GL/src/nvparse/nvparse_errors.cpp \
-	RenderSystems/GL/src/nvparse/_ps1.0_lexer.cpp \
-	RenderSystems/GL/src/nvparse/_ps1.0_parser.cpp \
-	RenderSystems/GL/src/nvparse/ps1.0_program.cpp \
-	RenderSystems/GL/src/nvparse/rc1.0_combiners.cpp \
-	RenderSystems/GL/src/nvparse/rc1.0_final.cpp \
-	RenderSystems/GL/src/nvparse/rc1.0_general.cpp \
-	RenderSystems/GL/src/nvparse/_rc1.0_lexer.cpp \
-	RenderSystems/GL/src/nvparse/_rc1.0_parser.cpp \
-	RenderSystems/GL/src/nvparse/ts1.0_inst.cpp \
-	RenderSystems/GL/src/nvparse/ts1.0_inst_list.cpp \
-	RenderSystems/GL/src/nvparse/_ts1.0_lexer.cpp \
-	RenderSystems/GL/src/nvparse/_ts1.0_parser.cpp \
-	RenderSystems/GL/src/nvparse/vcp1.0_impl.cpp \
-	RenderSystems/GL/src/nvparse/vp1.0_impl.cpp \
-	RenderSystems/GL/src/nvparse/vs1.0_inst.cpp \
-	RenderSystems/GL/src/nvparse/vs1.0_inst_list.cpp \
-	RenderSystems/GL/src/nvparse/_vs1.0_lexer.cpp \
-	RenderSystems/GL/src/nvparse/_vs1.0_parser.cpp \
-	RenderSystems/GL/src/nvparse/vsp1.0_impl.cpp \
-	RenderSystems/GL/src/GLSL/src/OgreGLSLExtSupport.cpp \
-	RenderSystems/GL/src/GLSL/src/OgreGLSLGpuProgram.cpp \
-	RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgram.cpp \
-	RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgramManager.cpp \
-	RenderSystems/GL/src/GLSL/src/OgreGLSLPreprocessor.cpp \
-	RenderSystems/GL/src/GLSL/src/OgreGLSLProgram.cpp \
-	RenderSystems/GL/src/GLSL/src/OgreGLSLProgramFactory.cpp \
-	RenderSystems/GL/src/atifs/src/ATI_FS_GLGpuProgram.cpp \
-	RenderSystems/GL/src/atifs/src/Compiler2Pass.cpp \
-	RenderSystems/GL/src/atifs/src/ps_1_4.cpp \
-	RenderSystems/GL/src/GLX/OgreGLXContext.cpp \
-	RenderSystems/GL/src/GLX/OgreGLXGLSupport.cpp \
-	RenderSystems/GL/src/GLX/OgreGLXRenderTexture.cpp \
-	RenderSystems/GL/src/GLX/OgreGLXWindow.cpp \
-	PlugIns/CgProgramManager/src/OgreCgPlugin.cpp \
-	PlugIns/CgProgramManager/src/OgreCgProgramManagerDll.cpp \
-	PlugIns/CgProgramManager/src/OgreCgProgram.cpp \
-	PlugIns/CgProgramManager/src/OgreCgProgramFactory.cpp \
-	PlugIns/CgProgramManager/src/OgreCgFxScriptLoader.cpp \
-	PlugIns/OctreeSceneManager/src/OgreOctreeCamera.cpp \
-	PlugIns/OctreeSceneManager/src/OgreOctree.cpp \
-	PlugIns/OctreeSceneManager/src/OgreOctreeNode.cpp \
-	PlugIns/OctreeSceneManager/src/OgreOctreePlugin.cpp \
-	PlugIns/OctreeSceneManager/src/OgreOctreeSceneManager.cpp \
-	PlugIns/OctreeSceneManager/src/OgreOctreeSceneQuery.cpp \
 
 OGRE_INCLUDE_SRCS = \
-	Tools/XMLConverter/include/OgreXMLMeshSerializer.h \
-	Tools/XMLConverter/include/tinystr.h \
-	Tools/XMLConverter/include/OgreXMLPrerequisites.h \
-	Tools/XMLConverter/include/OgreXMLSkeletonSerializer.h \
-	Tools/XMLConverter/include/tinyxml.h \
 	OgreBuildSettings.h \
-	OgreMain/include/OgreGpuProgramParams.h \
-	OgreMain/include/OgreRenderOperation.h \
-	OgreMain/include/OgreArchive.h \
-	OgreMain/include/OgreShadowCaster.h \
-	OgreMain/include/OgreSkeletonManager.h \
-	OgreMain/include/OgreSharedPtr.h \
-	OgreMain/include/OgreShadowCameraSetup.h \
-	OgreMain/include/OgreTangentSpaceCalc.h \
-	OgreMain/include/OgreGpuProgram.h \
-	OgreMain/include/OgreMeshSerializerImpl.h \
-	OgreMain/include/OgreFreeImageCodec.h \
-	OgreMain/include/OgreLodListener.h \
-	OgreMain/include/OgreMovablePlane.h \
-	OgreMain/include/OgreAutoParamDataSource.h \
-	OgreMain/include/OgrePrefabFactory.h \
-	OgreMain/include/OgreCompositionTargetPass.h \
-	OgreMain/include/OgrePixelCountLodStrategy.h \
-	OgreMain/include/OgreInstanceBatch.h \
-	OgreMain/include/OgreCompositorChain.h \
-	OgreMain/include/Ogre.h \
-	OgreMain/include/OgreCompositorInstance.h \
-	OgreMain/include/OgreRenderToVertexBuffer.h \
-	OgreMain/include/OgreCompositionPass.h \
-	OgreMain/include/OgrePatchMesh.h \
-	OgreMain/include/OgreMaterialSerializer.h \
-	OgreMain/include/OgreTextureManager.h \
-	OgreMain/include/OgreSmallVector.h \
-	OgreMain/include/OgreRenderable.h \
-	OgreMain/include/OgreHardwareBuffer.h \
-	OgreMain/include/OgreManualObject.h \
-	OgreMain/include/OgreHeaderSuffix.h \
-	OgreMain/include/OgreHardwareOcclusionQuery.h \
-	OgreMain/include/OgreString.h \
-	OgreMain/include/OgreAnimationTrack.h \
-	OgreMain/include/OgreOptimisedUtil.h \
+	OgreMain/include/Animation/OgreBone.h \
 	OgreMain/include/asm_math.h \
-	OgreMain/include/OgreShadowTextureManager.h \
-	OgreMain/include/OgreQueuedProgressiveMeshGenerator.h \
-	OgreMain/include/OgreRenderObjectListener.h \
-	OgreMain/include/OgreRenderQueueSortingGrouping.h \
-	OgreMain/include/OgreCompositorManager.h \
-	OgreMain/include/OgreColourValue.h \
-	OgreMain/include/OgreArchiveFactory.h \
-	OgreMain/include/OgreMath.h \
-	OgreMain/include/OgreScriptTranslator.h \
-	OgreMain/include/OgreHighLevelGpuProgramManager.h \
-	OgreMain/include/OgreGpuProgramUsage.h \
-	OgreMain/include/OgreSearchOps.h \
-	OgreMain/include/OgreRenderSystemCapabilitiesManager.h \
-	OgreMain/include/OgreVector2.h \
-	OgreMain/include/OgreRectangle2D.h \
-	OgreMain/include/OgreInstancedGeometry.h \
-	OgreMain/include/OgreStaticFaceGroup.h \
-	OgreMain/include/OgreInstancedEntity.h \
-	OgreMain/include/OgreRenderWindow.h \
-	OgreMain/include/OgreInstanceBatchHW_VTF.h \
-	OgreMain/include/OgreImageCodec.h \
-	OgreMain/include/OgrePlane.h \
-	OgreMain/include/OgreMemorySTLAllocator.h \
-	OgreMain/include/OgreController.h \
-	OgreMain/include/OgreAlignedAllocator.h \
-	OgreMain/include/OgreDefaultHardwareBufferManager.h \
-	OgreMain/include/OgreParticleAffectorFactory.h \
-	OgreMain/include/OgreSkeletonSerializer.h \
-	OgreMain/include/OgreAnimable.h \
-	OgreMain/include/OgreWindowEventUtilities.h \
-	OgreMain/include/OgreRenderQueue.h \
-	OgreMain/include/OgrePlatformInformation.h \
-	OgreMain/include/OgreMatrix4.h \
-	OgreMain/include/OgreFileSystem.h \
-	OgreMain/include/GLX/OgreTimerImp.h \
-	OgreMain/include/GLX/OgreErrorDialogImp.h \
 	OgreMain/include/GLX/OgreConfigDialogImp.h \
-	OgreMain/include/OgreFactoryObj.h \
-	OgreMain/include/OgreResourceBackgroundQueue.h \
-	OgreMain/include/OgreMeshManager.h \
-	OgreMain/include/OgreDepthBuffer.h \
-	OgreMain/include/OgreNumerics.h \
-	OgreMain/include/OgreRibbonTrail.h \
-	OgreMain/include/OgreVertexBoneAssignment.h \
-	OgreMain/include/OgreMemoryStdAlloc.h \
-	OgreMain/include/OgreVector4.h \
-	OgreMain/include/Threading/OgreDefaultWorkQueueStandard.h \
-	OgreMain/include/Threading/OgreDefaultWorkQueue.h \
-	OgreMain/include/Threading/OgreDefaultWorkQueueTBB.h \
-	OgreMain/include/Threading/OgreThreadHeadersBoost.h \
-	OgreMain/include/Threading/OgreThreadHeadersPoco.h \
-	OgreMain/include/Threading/OgreThreadDefinesNone.h \
-	OgreMain/include/Threading/OgreThreadHeadersTBB.h \
-	OgreMain/include/Threading/OgreThreadDefinesPoco.h \
-	OgreMain/include/Threading/OgreThreadHeaders.h \
-	OgreMain/include/Threading/OgreThreadHeadersStd.h \
-	OgreMain/include/Threading/OgreThreadDefinesBoost.h \
-	OgreMain/include/Threading/OgreThreadDefinesTBB.h \
-	OgreMain/include/Threading/OgreThreadDefines.h \
-	OgreMain/include/Threading/OgreThreadDefinesStd.h \
-	OgreMain/include/OgreShadowCameraSetupPlaneOptimal.h \
-	OgreMain/include/OgreGpuProgramManager.h \
-	OgreMain/include/OgreViewport.h \
-	OgreMain/include/OgreBone.h \
-	OgreMain/include/OgreCompositor.h \
-	OgreMain/include/OgreScriptCompiler.h \
-	OgreMain/include/OgreParticleEmitterCommands.h \
-	OgreMain/include/OgreSkeletonFileFormat.h \
-	OgreMain/include/OgreETC1Codec.h \
-	OgreMain/include/OgreRenderQueueInvocation.h \
-	OgreMain/include/OgreDynLib.h \
-	OgreMain/include/OgreRadixSort.h \
-	OgreMain/include/OgreHardwarePixelBuffer.h \
-	OgreMain/include/OgreQuaternion.h \
-	OgreMain/include/OgreBitwise.h \
-	OgreMain/include/OgrePredefinedControllers.h \
-	OgreMain/include/OgrePixelFormat.h \
-	OgreMain/include/OgreCamera.h \
-	OgreMain/include/OgreParticleSystemManager.h \
-	OgreMain/include/OgreConfigFile.h \
-	OgreMain/include/OgreException.h \
-	OgreMain/include/OgreParticleScriptCompiler.h \
-	OgreMain/include/OgreFrustum.h \
-	OgreMain/include/OgreConvexBody.h \
-	OgreMain/include/OgreProfiler.h \
-	OgreMain/include/OgrePVRTCCodec.h \
-	OgreMain/include/OgreSerializer.h \
-	OgreMain/include/OgreResourceGroupManager.h \
-	OgreMain/include/OgreSubMesh.h \
-	OgreMain/include/OgreRenderTexture.h \
-	OgreMain/include/OgreTechnique.h \
-	OgreMain/include/OgreWireBoundingBox.h \
-	OgreMain/include/OgreDDSCodec.h \
-	OgreMain/include/OgrePatchSurface.h \
-	OgreMain/include/OgreMaterialManager.h \
-	OgreMain/include/gtk/OgreErrorDialogImp.h \
+	OgreMain/include/GLX/OgreErrorDialogImp.h \
+	OgreMain/include/GLX/OgreTimerImp.h \
 	OgreMain/include/gtk/OgreConfigDialogImp.h \
-	OgreMain/include/OgreAnimation.h \
-	OgreMain/include/OgreExternalTextureSource.h \
-	OgreMain/include/OgreShadowVolumeExtrudeProgram.h \
-	OgreMain/include/OgreProgressiveMeshGenerator.h \
-	OgreMain/include/OgreErrorDialog.h \
-	OgreMain/include/OgreHighLevelGpuProgram.h \
-	OgreMain/include/OgreRenderSystem.h \
-	OgreMain/include/OgreMeshFileFormat.h \
-	OgreMain/include/OgreResourceManager.h \
-	OgreMain/include/OgreRay.h \
-	OgreMain/include/OgreImage.h \
-	OgreMain/include/OgreSceneQuery.h \
-	OgreMain/include/OgreSceneManager.h \
-	OgreMain/include/OgreStringInterface.h \
-	OgreMain/include/OgreSpotShadowFadePng.h \
-	OgreMain/include/OgreHardwareBufferManager.h \
-	OgreMain/include/OgreMemoryNedPooling.h \
-	OgreMain/include/OgreLogManager.h \
-	OgreMain/include/OgreSceneNode.h \
-	OgreMain/include/OgreTagPoint.h \
-	OgreMain/include/OgreZip.h \
-	OgreMain/include/OgreSingleton.h \
-	OgreMain/include/OgreMaterial.h \
-	OgreMain/include/OgreAny.h \
-	OgreMain/include/OgreKeyFrame.h \
-	OgreMain/include/OgreConfig.h \
-	OgreMain/include/OgreCompositorLogic.h \
-	OgreMain/include/OgreVertexIndexData.h \
-	OgreMain/include/OgreStreamSerialiser.h \
-	OgreMain/include/OgreInstanceBatchHW.h \
-	OgreMain/include/OgreParticleSystemRenderer.h \
-	OgreMain/include/OgreMemoryNedAlloc.h \
-	OgreMain/include/OgreSkeletonInstance.h \
-	OgreMain/include/OgreDataStream.h \
-	OgreMain/include/OgreSphere.h \
-	OgreMain/include/OgrePose.h \
-	OgreMain/include/OgreParticleIterator.h \
-	OgreMain/include/OgreDynLibManager.h \
-	OgreMain/include/OgrePass.h \
-	OgreMain/include/OgreSimpleRenderable.h \
-	OgreMain/include/OgreDeflate.h \
-	OgreMain/include/OgreInstanceManager.h \
-	OgreMain/include/OgreAtomicWrappers.h \
-	OgreMain/include/OgreMemoryAllocatedObject.h \
-	OgreMain/include/OgreStringConverter.h \
-	OgreMain/include/OgreParticleEmitterFactory.h \
-	OgreMain/include/OgreRenderSystemCapabilities.h \
-	OgreMain/include/OgreScriptLexer.h \
-	OgreMain/include/OgreUTFString.h \
-	OgreMain/include/OgreAxisAlignedBox.h \
-	OgreMain/include/OgreRenderTarget.h \
-	OgreMain/include/OgreRoot.h \
-	OgreMain/include/OgreFileSystemLayer.h \
-	OgreMain/include/OgreResource.h \
-	OgreMain/include/OgreHardwareCounterBuffer.h \
-	OgreMain/include/OgreMovableObject.h \
-	OgreMain/include/OgrePlatform.h \
-	OgreMain/include/OgreIteratorWrapper.h \
-	OgreMain/include/OgreParticle.h \
-	OgreMain/include/OgreTexture.h \
-	OgreMain/include/OgreWorkQueue.h \
-	OgreMain/include/OgreLight.h \
-	OgreMain/include/OgreArchiveManager.h \
-	OgreMain/include/OgrePrerequisites.h \
-	OgreMain/include/OgreCustomCompositionPass.h \
-	OgreMain/include/OgreHardwareUniformBuffer.h \
-	OgreMain/include/OgreTextureUnitState.h \
-	OgreMain/include/OgreDistanceLodStrategy.h \
-	OgreMain/include/OgreMemoryTracker.h \
-	OgreMain/include/OgreHardwareIndexBuffer.h \
-	OgreMain/include/OgreShadowCameraSetupPSSM.h \
-	OgreMain/include/OgreBlendMode.h \
-	OgreMain/include/OgreMesh.h \
-	OgreMain/include/OgreMeshSerializer.h \
-	OgreMain/include/OgreHardwareVertexBuffer.h \
-	OgreMain/include/OgreUnifiedHighLevelGpuProgram.h \
-	OgreMain/include/OgreVector3.h \
-	OgreMain/include/OgreInstanceBatchVTF.h \
-	OgreMain/include/OgreInstanceBatchShader.h \
-	OgreMain/include/OgrePlaneBoundedVolume.h \
-	OgreMain/include/OgreScriptLoader.h \
-	OgreMain/include/OgreEdgeListBuilder.h \
-	OgreMain/include/OgreCompositionTechnique.h \
-	OgreMain/include/OgrePolygon.h \
-	OgreMain/include/OgreBillboard.h \
-	OgreMain/include/OgreIteratorRange.h \
-	OgreMain/include/OgreMatrix3.h \
-	OgreMain/include/OgreDualQuaternion.h \
-	OgreMain/include/OgreBillboardSet.h \
-	OgreMain/include/OgreConfigDialog.h \
-	OgreMain/include/OgreStdHeaders.h \
-	OgreMain/include/OgreCommon.h \
-	OgreMain/include/OgreLodStrategyManager.h \
-	OgreMain/include/OgreSimpleSpline.h \
-	OgreMain/include/OgreBillboardChain.h \
-	OgreMain/include/OgreLodStrategy.h \
-	OgreMain/include/OgreMemoryAllocatorConfig.h \
-	OgreMain/include/NaCl/OgreTimerImp.h \
-	OgreMain/include/NaCl/OgreErrorDialogImp.h \
+	OgreMain/include/gtk/OgreErrorDialogImp.h \
 	OgreMain/include/NaCl/OgreConfigDialogImp.h \
-	OgreMain/include/OgreRenderTargetListener.h \
-	OgreMain/include/OgreUserObjectBindings.h \
-	OgreMain/include/OgreControllerManager.h \
-	OgreMain/include/OgreNode.h \
-	OgreMain/include/OgrePlugin.h \
-	OgreMain/include/OgreEntity.h \
-	OgreMain/include/OgreRotationalSpline.h \
-	OgreMain/include/OgreBillboardParticleRenderer.h \
-	OgreMain/include/OgreSkeleton.h \
-	OgreMain/include/OgreFrameListener.h \
+	OgreMain/include/NaCl/OgreErrorDialogImp.h \
+	OgreMain/include/NaCl/OgreTimerImp.h \
+	OgreMain/include/OgreAlignedAllocator.h \
+	OgreMain/include/OgreAnimable.h \
+	OgreMain/include/OgreAnimation.h \
 	OgreMain/include/OgreAnimationState.h \
-	OgreMain/include/OgreScriptParser.h \
-	OgreMain/include/OgreParticleAffector.h \
-	OgreMain/include/OgreSceneManagerEnumerator.h \
-	OgreMain/include/OgreTimer.h \
-	OgreMain/include/OgreStringVector.h \
-	OgreMain/include/OgreLodConfig.h \
-	OgreMain/include/OgreExternalTextureSourceManager.h \
-	OgreMain/include/OgreIteratorWrappers.h \
-	OgreMain/include/OgreParticleSystem.h \
-	OgreMain/include/OgreParticleEmitter.h \
-	OgreMain/include/OgreStaticGeometry.h \
-	OgreMain/include/OgreRenderSystemCapabilitiesSerializer.h \
+	OgreMain/include/OgreAnimationTrack.h \
+	OgreMain/include/OgreAny.h \
+	OgreMain/include/OgreArchiveFactory.h \
+	OgreMain/include/OgreArchive.h \
+	OgreMain/include/OgreArchiveManager.h \
+	OgreMain/include/OgreAtomicWrappers.h \
+	OgreMain/include/OgreAutoParamDataSource.h \
+	OgreMain/include/OgreAxisAlignedBox.h \
+	OgreMain/include/OgreBillboardChain.h \
+	OgreMain/include/OgreBillboard.h \
+	OgreMain/include/OgreBillboardParticleRenderer.h \
+	OgreMain/include/OgreBillboardSet.h \
+	OgreMain/include/OgreBitwise.h \
+	OgreMain/include/OgreBlendMode.h \
+	OgreMain/include/OgreCamera.h \
 	OgreMain/include/OgreCodec.h \
-	OgreMain/include/OgreShadowCameraSetupFocused.h \
-	OgreMain/include/OgreShadowCameraSetupLiSPSM.h \
-	OgreMain/include/OgreHeaderPrefix.h \
-	OgreMain/include/OgreRenderQueueListener.h \
-	OgreMain/include/OgreSubEntity.h \
-	OgreMain/include/OgreStableHeaders.h \
+	OgreMain/include/OgreColourValue.h \
+	OgreMain/include/OgreCommon.h \
+	OgreMain/include/OgreCompositionTargetPass.h \
+	OgreMain/include/OgreCompositionTechnique.h \
+	OgreMain/include/OgreCompositorChain.h \
+	OgreMain/include/OgreCompositor.h \
+	OgreMain/include/OgreCompositorInstance.h \
+	OgreMain/include/OgreCompositorLogic.h \
+	OgreMain/include/OgreCompositorManager.h \
+	OgreMain/include/OgreConfigDialog.h \
+	OgreMain/include/OgreConfigFile.h \
+	OgreMain/include/OgreConfig.h \
 	OgreMain/include/OgreConfigOptionMap.h \
+	OgreMain/include/OgreController.h \
+	OgreMain/include/OgreControllerManager.h \
+	OgreMain/include/OgreConvexBody.h \
+	OgreMain/include/OgreDataStream.h \
+	OgreMain/include/OgreDDSCodec.h \
+	OgreMain/include/OgreDefaultHardwareBufferManager.h \
+	OgreMain/include/OgreDeflate.h \
+	OgreMain/include/OgreDepthBuffer.h \
+	OgreMain/include/OgreDistanceLodStrategy.h \
+	OgreMain/include/OgreDualQuaternion.h \
+	OgreMain/include/OgreDynLib.h \
+	OgreMain/include/OgreDynLibManager.h \
+	OgreMain/include/OgreEdgeListBuilder.h \
+	OgreMain/include/OgreEntity.h \
+	OgreMain/include/OgreErrorDialog.h \
+	OgreMain/include/OgreETC1Codec.h \
+	OgreMain/include/OgreException.h \
+	OgreMain/include/OgreExternalTextureSource.h \
+	OgreMain/include/OgreExternalTextureSourceManager.h \
+	OgreMain/include/OgreFactoryObj.h \
+	OgreMain/include/OgreFileSystem.h \
+	OgreMain/include/OgreFileSystemLayer.h \
+	OgreMain/include/OgreFrameListener.h \
+	OgreMain/include/OgreFreeImageCodec.h \
+	OgreMain/include/OgreFrustum.h \
+	OgreMain/include/OgreGpuProgram.h \
+	OgreMain/include/OgreGpuProgramManager.h \
+	OgreMain/include/OgreGpuProgramParams.h \
+	OgreMain/include/OgreGpuProgramUsage.h \
+	OgreMain/include/Ogre.h \
+	OgreMain/include/OgreHardwareBuffer.h \
+	OgreMain/include/OgreHardwareBufferManager.h \
+	OgreMain/include/OgreHardwareCounterBuffer.h \
+	OgreMain/include/OgreHardwareIndexBuffer.h \
+	OgreMain/include/OgreHardwareOcclusionQuery.h \
+	OgreMain/include/OgreHardwarePixelBuffer.h \
+	OgreMain/include/OgreHardwareUniformBuffer.h \
+	OgreMain/include/OgreHardwareVertexBuffer.h \
+	OgreMain/include/OgreHeaderPrefix.h \
+	OgreMain/include/OgreHeaderSuffix.h \
+	OgreMain/include/OgreHighLevelGpuProgram.h \
+	OgreMain/include/OgreHighLevelGpuProgramManager.h \
+	OgreMain/include/OgreImageCodec.h \
+	OgreMain/include/OgreImage.h \
+	OgreMain/include/OgreInstanceBatch.h \
+	OgreMain/include/OgreInstanceBatchHW.h \
+	OgreMain/include/OgreInstanceBatchHW_VTF.h \
+	OgreMain/include/OgreInstanceBatchShader.h \
+	OgreMain/include/OgreInstanceBatchVTF.h \
+	OgreMain/include/OgreInstancedEntity.h \
+	OgreMain/include/OgreInstancedGeometry.h \
+	OgreMain/include/OgreInstanceManager.h \
+	OgreMain/include/OgreIteratorRange.h \
+	OgreMain/include/OgreIteratorWrapper.h \
+	OgreMain/include/OgreIteratorWrappers.h \
+	OgreMain/include/OgreKeyFrame.h \
+	OgreMain/include/OgreLight.h \
+	OgreMain/include/OgreLodConfig.h \
+	OgreMain/include/OgreLodListener.h \
+	OgreMain/include/OgreLodStrategy.h \
+	OgreMain/include/OgreLodStrategyManager.h \
 	OgreMain/include/OgreLog.h \
+	OgreMain/include/OgreLogManager.h \
+	OgreMain/include/OgreManualObject.h \
+	OgreMain/include/OgreMaterial.h \
+	OgreMain/include/OgreMaterialManager.h \
+	OgreMain/include/OgreMaterialSerializer.h \
+	OgreMain/include/OgreMath.h \
+	OgreMain/include/OgreMatrix3.h \
+	OgreMain/include/OgreMatrix4.h \
+	OgreMain/include/OgreMemoryAllocatedObject.h \
+	OgreMain/include/OgreMemoryAllocatorConfig.h \
+	OgreMain/include/OgreMemoryNedAlloc.h \
+	OgreMain/include/OgreMemoryNedPooling.h \
+	OgreMain/include/OgreMemoryStdAlloc.h \
+	OgreMain/include/OgreMemorySTLAllocator.h \
+	OgreMain/include/OgreMemoryTracker.h \
+	OgreMain/include/OgreMeshFileFormat.h \
+	OgreMain/include/OgreMesh.h \
+	OgreMain/include/OgreMeshManager.h \
+	OgreMain/include/OgreMeshSerializer.h \
+	OgreMain/include/OgreMeshSerializerImpl.h \
+	OgreMain/include/OgreMovableObject.h \
+	OgreMain/include/OgreMovablePlane.h \
+	OgreMain/include/OgreNode.h \
+	OgreMain/include/OgreNumerics.h \
+	OgreMain/include/OgreOptimisedUtil.h \
+	OgreMain/include/OgreParticleAffectorFactory.h \
+	OgreMain/include/OgreParticleAffector.h \
+	OgreMain/include/OgreParticleEmitterCommands.h \
+	OgreMain/include/OgreParticleEmitterFactory.h \
+	OgreMain/include/OgreParticleEmitter.h \
+	OgreMain/include/OgreParticle.h \
+	OgreMain/include/OgreParticleIterator.h \
+	OgreMain/include/OgreParticleScriptCompiler.h \
+	OgreMain/include/OgreParticleSystem.h \
+	OgreMain/include/OgreParticleSystemManager.h \
+	OgreMain/include/OgreParticleSystemRenderer.h \
+	OgreMain/include/OgrePass.h \
+	OgreMain/include/OgrePatchMesh.h \
+	OgreMain/include/OgrePatchSurface.h \
+	OgreMain/include/OgrePixelCountLodStrategy.h \
+	OgreMain/include/OgrePixelFormat.h \
+	OgreMain/include/OgrePlaneBoundedVolume.h \
+	OgreMain/include/OgrePlane.h \
+	OgreMain/include/OgrePlatform.h \
+	OgreMain/include/OgrePlatformInformation.h \
+	OgreMain/include/OgrePlugin.h \
+	OgreMain/include/OgrePolygon.h \
+	OgreMain/include/OgrePose.h \
+	OgreMain/include/OgrePredefinedControllers.h \
+	OgreMain/include/OgrePrefabFactory.h \
+	OgreMain/include/OgrePrerequisites.h \
+	OgreMain/include/OgreProfiler.h \
+	OgreMain/include/OgreProgressiveMeshGenerator.h \
+	OgreMain/include/OgrePVRTCCodec.h \
+	OgreMain/include/OgreQuaternion.h \
+	OgreMain/include/OgreQueuedProgressiveMeshGenerator.h \
+	OgreMain/include/OgreRadixSort.h \
+	OgreMain/include/OgreRay.h \
+	OgreMain/include/OgreRectangle2D.h \
+	OgreMain/include/OgreRenderable.h \
+	OgreMain/include/OgreRenderObjectListener.h \
+	OgreMain/include/OgreRenderOperation.h \
+	OgreMain/include/OgreRenderQueue.h \
+	OgreMain/include/OgreRenderQueueInvocation.h \
+	OgreMain/include/OgreRenderQueueListener.h \
+	OgreMain/include/OgreRenderQueueSortingGrouping.h \
+	OgreMain/include/OgreRenderSystemCapabilities.h \
+	OgreMain/include/OgreRenderSystemCapabilitiesManager.h \
+	OgreMain/include/OgreRenderSystemCapabilitiesSerializer.h \
+	OgreMain/include/OgreRenderSystem.h \
+	OgreMain/include/OgreRenderTarget.h \
+	OgreMain/include/OgreRenderTargetListener.h \
+	OgreMain/include/OgreRenderTexture.h \
+	OgreMain/include/OgreRenderToVertexBuffer.h \
+	OgreMain/include/OgreRenderWindow.h \
+	OgreMain/include/OgreResourceBackgroundQueue.h \
+	OgreMain/include/OgreResourceGroupManager.h \
+	OgreMain/include/OgreResource.h \
+	OgreMain/include/OgreResourceManager.h \
+	OgreMain/include/OgreRibbonTrail.h \
+	OgreMain/include/OgreRoot.h \
+	OgreMain/include/OgreRotationalSpline.h \
+	OgreMain/include/OgreSceneManagerEnumerator.h \
+	OgreMain/include/OgreSceneManager.h \
+	OgreMain/include/OgreSceneNode.h \
+	OgreMain/include/OgreSceneQuery.h \
+	OgreMain/include/OgreScriptCompiler.h \
+	OgreMain/include/OgreScriptLexer.h \
+	OgreMain/include/OgreScriptLoader.h \
+	OgreMain/include/OgreScriptParser.h \
+	OgreMain/include/OgreScriptTranslator.h \
+	OgreMain/include/OgreSearchOps.h \
+	OgreMain/include/OgreSerializer.h \
+	OgreMain/include/OgreShadowCameraSetupFocused.h \
+	OgreMain/include/OgreShadowCameraSetup.h \
+	OgreMain/include/OgreShadowCameraSetupLiSPSM.h \
+	OgreMain/include/OgreShadowCameraSetupPlaneOptimal.h \
+	OgreMain/include/OgreShadowCameraSetupPSSM.h \
+	OgreMain/include/OgreShadowCaster.h \
+	OgreMain/include/OgreShadowTextureManager.h \
+	OgreMain/include/OgreShadowVolumeExtrudeProgram.h \
+	OgreMain/include/OgreSharedPtr.h \
+	OgreMain/include/OgreSimpleRenderable.h \
+	OgreMain/include/OgreSimpleSpline.h \
+	OgreMain/include/OgreSingleton.h \
+	OgreMain/include/OgreSkeletonFileFormat.h \
+	OgreMain/include/OgreSkeleton.h \
+	OgreMain/include/OgreSkeletonInstance.h \
+	OgreMain/include/OgreSkeletonManager.h \
+	OgreMain/include/OgreSkeletonSerializer.h \
+	OgreMain/include/OgreSmallVector.h \
+	OgreMain/include/OgreSphere.h \
+	OgreMain/include/OgreSpotShadowFadePng.h \
+	OgreMain/include/OgreStableHeaders.h \
+	OgreMain/include/OgreStaticFaceGroup.h \
+	OgreMain/include/OgreStaticGeometry.h \
+	OgreMain/include/OgreStdHeaders.h \
+	OgreMain/include/OgreStreamSerialiser.h \
+	OgreMain/include/OgreStringConverter.h \
+	OgreMain/include/OgreString.h \
+	OgreMain/include/OgreStringInterface.h \
+	OgreMain/include/OgreStringVector.h \
+	OgreMain/include/OgreSubEntity.h \
+	OgreMain/include/OgreSubMesh.h \
+	OgreMain/include/OgreTagPoint.h \
+	OgreMain/include/OgreTangentSpaceCalc.h \
+	OgreMain/include/OgreTechnique.h \
+	OgreMain/include/OgreTexture.h \
+	OgreMain/include/OgreTextureManager.h \
+	OgreMain/include/OgreTextureUnitState.h \
+	OgreMain/include/OgreTimer.h \
+	OgreMain/include/OgreUnifiedHighLevelGpuProgram.h \
+	OgreMain/include/OgreUserObjectBindings.h \
+	OgreMain/include/OgreUTFString.h \
+	OgreMain/include/OgreVector2.h \
+	OgreMain/include/OgreVector3.h \
+	OgreMain/include/OgreVector4.h \
+	OgreMain/include/OgreVertexBoneAssignment.h \
+	OgreMain/include/OgreVertexIndexData.h \
+	OgreMain/include/OgreViewport.h \
+	OgreMain/include/OgreWindowEventUtilities.h \
+	OgreMain/include/OgreWireBoundingBox.h \
+	OgreMain/include/OgreWorkQueue.h \
+	OgreMain/include/OgreZip.h \
+	OgreMain/include/Threading/OgreDefaultWorkQueue.h \
+	OgreMain/include/Threading/OgreDefaultWorkQueueStandard.h \
+	OgreMain/include/Threading/OgreDefaultWorkQueueTBB.h \
+	OgreMain/include/Threading/OgreThreadDefinesBoost.h \
+	OgreMain/include/Threading/OgreThreadDefines.h \
+	OgreMain/include/Threading/OgreThreadDefinesNone.h \
+	OgreMain/include/Threading/OgreThreadDefinesPoco.h \
+	OgreMain/include/Threading/OgreThreadDefinesStd.h \
+	OgreMain/include/Threading/OgreThreadDefinesTBB.h \
+	OgreMain/include/Threading/OgreThreadHeadersBoost.h \
+	OgreMain/include/Threading/OgreThreadHeaders.h \
+	OgreMain/include/Threading/OgreThreadHeadersPoco.h \
+	OgreMain/include/Threading/OgreThreadHeadersStd.h \
+	OgreMain/include/Threading/OgreThreadHeadersTBB.h \
 	OgreMain/src/GLX/GLX_backdrop.h \
-	OgreMain/src/OgreImageResampler.h \
 	OgreMain/src/gtk/GLX_backdrop.h \
 	OgreMain/src/nedmalloc/malloc.c.h \
 	OgreMain/src/nedmalloc/nedmalloc.h \
-	OgreMain/src/OgreSIMDHelper.h \
+	OgreMain/src/OgreImageResampler.h \
 	OgreMain/src/OgrePixelConversions.h \
-	PlugIns/OctreeSceneManager/include/OgreOctreeSceneQuery.h \
-	PlugIns/OctreeSceneManager/include/OgreOctree.h \
-	PlugIns/OctreeSceneManager/include/OgreOctreeSceneManager.h \
-	PlugIns/OctreeSceneManager/include/OgreOctreeCamera.h \
-	PlugIns/OctreeSceneManager/include/OgreOctreePlugin.h \
-	PlugIns/OctreeSceneManager/include/OgreOctreeNode.h \
-	PlugIns/OctreeSceneManager/include/OgreOctreePrerequisites.h \
-	PlugIns/CgProgramManager/include/OgreCgProgram.h \
+	OgreMain/src/OgreSIMDHelper.h \
+	PlugIns/CgProgramManager/include/OgreCgFxScriptLoader.h \
+	PlugIns/CgProgramManager/include/OgreCgPlugin.h \
 	PlugIns/CgProgramManager/include/OgreCgPrerequisites.h \
 	PlugIns/CgProgramManager/include/OgreCgProgramFactory.h \
-	PlugIns/CgProgramManager/include/OgreCgPlugin.h \
-	PlugIns/CgProgramManager/include/OgreCgFxScriptLoader.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusHardwareVertexBuffer.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusGpuProgram.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusHardwareCounterBuffer.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusPlugin.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusTextureManager.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusRenderTexture.h \
-	RenderSystems/GL3Plus/include/GLX/OgreGLXWindow.h \
-	RenderSystems/GL3Plus/include/GLX/OgreGLXGLSupport.h \
-	RenderSystems/GL3Plus/include/GLX/OgreGLXContext.h \
-	RenderSystems/GL3Plus/include/GLX/OgreGLXUtils.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusHardwarePixelBuffer.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusTexture.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusFBOMultiRenderTarget.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusGpuProgramManager.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusHardwareOcclusionQuery.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusHardwareBufferManager.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusSupport.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusRenderSystem.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusContext.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusHardwareIndexBuffer.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusPixelFormat.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusDefaultHardwareBufferManager.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusHardwareUniformBuffer.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusRenderToVertexBuffer.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusDepthBuffer.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusFrameBufferObject.h \
-	RenderSystems/GL3Plus/include/OgreGL3PlusVertexArrayObject.h \
-	RenderSystems/GL3Plus/include/GL/wglext.h \
-	RenderSystems/GL3Plus/include/GL/glxext.h \
-	RenderSystems/GL3Plus/include/GL/glxtokens-backup.h \
+	PlugIns/CgProgramManager/include/OgreCgProgram.h \
+	PlugIns/OctreeSceneManager/include/OgreOctreeCamera.h \
+	PlugIns/OctreeSceneManager/include/OgreOctree.h \
+	PlugIns/OctreeSceneManager/include/OgreOctreeNode.h \
+	PlugIns/OctreeSceneManager/include/OgreOctreePlugin.h \
+	PlugIns/OctreeSceneManager/include/OgreOctreePrerequisites.h \
+	PlugIns/OctreeSceneManager/include/OgreOctreeSceneManager.h \
+	PlugIns/OctreeSceneManager/include/OgreOctreeSceneQuery.h \
 	RenderSystems/GL3Plus/include/GL/gl3w.h \
 	RenderSystems/GL3Plus/include/GL/glcorearb.h \
 	RenderSystems/GL3Plus/include/GL/glext.h \
+	RenderSystems/GL3Plus/include/GL/glxext.h \
+	RenderSystems/GL3Plus/include/GL/glxtokens-backup.h \
+	RenderSystems/GL3Plus/include/GL/wglext.h \
+	RenderSystems/GL3Plus/include/GLX/OgreGLXContext.h \
+	RenderSystems/GL3Plus/include/GLX/OgreGLXGLSupport.h \
+	RenderSystems/GL3Plus/include/GLX/OgreGLXUtils.h \
+	RenderSystems/GL3Plus/include/GLX/OgreGLXWindow.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusContext.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusDefaultHardwareBufferManager.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusDepthBuffer.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusFBOMultiRenderTarget.h \
 	RenderSystems/GL3Plus/include/OgreGL3PlusFBORenderTexture.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusFrameBufferObject.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusGpuProgram.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusGpuProgramManager.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusHardwareBufferManager.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusHardwareCounterBuffer.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusHardwareIndexBuffer.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusHardwareOcclusionQuery.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusHardwarePixelBuffer.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusHardwareUniformBuffer.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusHardwareVertexBuffer.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusPixelFormat.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusPlugin.h \
 	RenderSystems/GL3Plus/include/OgreGL3PlusPrerequisites.h \
-	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLLinkProgramManager.h \
-	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLProgramPipelineManager.h \
-	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLProgram.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusRenderSystem.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusRenderTexture.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusRenderToVertexBuffer.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusSupport.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusTexture.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusTextureManager.h \
+	RenderSystems/GL3Plus/include/OgreGL3PlusVertexArrayObject.h \
 	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLExtSupport.h \
-	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLProgramManagerCommon.h \
-	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLProgramCommon.h \
-	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLLinkProgram.h \
 	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLGpuProgram.h \
+	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLLinkProgram.h \
+	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLLinkProgramManager.h \
 	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLPreprocessor.h \
-	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLProgramPipeline.h \
+	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLProgramCommon.h \
 	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLProgramFactory.h \
+	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLProgram.h \
+	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLProgramManagerCommon.h \
+	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLProgramPipeline.h \
+	RenderSystems/GL3Plus/src/GLSL/include/OgreGLSLProgramPipelineManager.h \
 	RenderSystems/GL3Plus/src/GLX/OgreGL3PlusUtil.h \
 	RenderSystems/GL3Plus/src/gtk/OgreGL3PlusUtil.h \
-	RenderSystems/GL/include/OgreGLFBORenderTexture.h \
-	RenderSystems/GL/include/OgreGLHardwareVertexBuffer.h \
-	RenderSystems/GL/include/OgreGLHardwareIndexBuffer.h \
-	RenderSystems/GL/include/OgreGLHardwarePixelBuffer.h \
-	RenderSystems/GL/include/OgreGLDepthBuffer.h \
-	RenderSystems/GL/include/GLX/OgreGLXWindow.h \
-	RenderSystems/GL/include/GLX/OgreGLXGLSupport.h \
-	RenderSystems/GL/include/GLX/OgreGLXContext.h \
-	RenderSystems/GL/include/GLX/OgreGLXUtils.h \
-	RenderSystems/GL/include/GLX/OgreGLXRenderTexture.h \
-	RenderSystems/GL/include/OgreSDLGLSupport.h \
-	RenderSystems/GL/include/OgreGLSupport.h \
-	RenderSystems/GL/include/OgreSDLPrerequisites.h \
-	RenderSystems/GL/include/OgreGLContext.h \
-	RenderSystems/GL/include/OgreGLPrerequisites.h \
-	RenderSystems/GL/include/OgreGLGpuProgramManager.h \
-	RenderSystems/GL/include/OgreGLFrameBufferObject.h \
-	RenderSystems/GL/include/OgreGLPixelFormat.h \
-	RenderSystems/GL/include/OgreGLHardwareOcclusionQuery.h \
-	RenderSystems/GL/include/OgreGLPlugin.h \
-	RenderSystems/GL/include/OgreGLRenderSystem.h \
-	RenderSystems/GL/include/OgreGLRenderToVertexBuffer.h \
-	RenderSystems/GL/include/OgreGLATIFSInit.h \
-	RenderSystems/GL/include/OgreGLGpuProgram.h \
-	RenderSystems/GL/include/OgreGLPBuffer.h \
-	RenderSystems/GL/include/OgreGLFBOMultiRenderTarget.h \
-	RenderSystems/GL/include/OgreGLTexture.h \
-	RenderSystems/GL/include/GL/wglext.h \
-	RenderSystems/GL/include/GL/glxext.h \
 	RenderSystems/GL/include/GL/glew.h \
-	RenderSystems/GL/include/GL/glxtokens.h \
-	RenderSystems/GL/include/GL/gl.h \
-	RenderSystems/GL/include/GL/wglew.h \
 	RenderSystems/GL/include/GL/glext.h \
+	RenderSystems/GL/include/GL/gl.h \
 	RenderSystems/GL/include/GL/glxew.h \
-	RenderSystems/GL/include/OgreGLHardwareBufferManager.h \
+	RenderSystems/GL/include/GL/glxext.h \
+	RenderSystems/GL/include/GL/glxtokens.h \
+	RenderSystems/GL/include/GL/wglew.h \
+	RenderSystems/GL/include/GL/wglext.h \
+	RenderSystems/GL/include/GLX/OgreGLXContext.h \
+	RenderSystems/GL/include/GLX/OgreGLXGLSupport.h \
+	RenderSystems/GL/include/GLX/OgreGLXRenderTexture.h \
+	RenderSystems/GL/include/GLX/OgreGLXUtils.h \
+	RenderSystems/GL/include/GLX/OgreGLXWindow.h \
+	RenderSystems/GL/include/OgreGLATIFSInit.h \
+	RenderSystems/GL/include/OgreGLContext.h \
 	RenderSystems/GL/include/OgreGLDefaultHardwareBufferManager.h \
-	RenderSystems/GL/include/OgreGLPBRenderTexture.h \
+	RenderSystems/GL/include/OgreGLDepthBuffer.h \
+	RenderSystems/GL/include/OgreGLFBOMultiRenderTarget.h \
+	RenderSystems/GL/include/OgreGLFBORenderTexture.h \
+	RenderSystems/GL/include/OgreGLFrameBufferObject.h \
 	RenderSystems/GL/include/OgreGLGpuNvparseProgram.h \
+	RenderSystems/GL/include/OgreGLGpuProgram.h \
+	RenderSystems/GL/include/OgreGLGpuProgramManager.h \
+	RenderSystems/GL/include/OgreGLHardwareBufferManager.h \
+	RenderSystems/GL/include/OgreGLHardwareIndexBuffer.h \
+	RenderSystems/GL/include/OgreGLHardwareOcclusionQuery.h \
+	RenderSystems/GL/include/OgreGLHardwarePixelBuffer.h \
+	RenderSystems/GL/include/OgreGLHardwareVertexBuffer.h \
+	RenderSystems/GL/include/OgreGLPBRenderTexture.h \
+	RenderSystems/GL/include/OgreGLPBuffer.h \
+	RenderSystems/GL/include/OgreGLPixelFormat.h \
+	RenderSystems/GL/include/OgreGLPlugin.h \
+	RenderSystems/GL/include/OgreGLPrerequisites.h \
+	RenderSystems/GL/include/OgreGLRenderSystem.h \
 	RenderSystems/GL/include/OgreGLRenderTexture.h \
+	RenderSystems/GL/include/OgreGLRenderToVertexBuffer.h \
+	RenderSystems/GL/include/OgreGLSupport.h \
+	RenderSystems/GL/include/OgreGLTexture.h \
 	RenderSystems/GL/include/OgreGLTextureManager.h \
+	RenderSystems/GL/include/OgreSDLGLSupport.h \
+	RenderSystems/GL/include/OgreSDLPrerequisites.h \
+	RenderSystems/GL/src/atifs/include/ATI_FS_GLGpuProgram.h \
 	RenderSystems/GL/src/atifs/include/Compiler2Pass.h \
 	RenderSystems/GL/src/atifs/include/ps_1_4.h \
-	RenderSystems/GL/src/atifs/include/ATI_FS_GLGpuProgram.h \
-	RenderSystems/GL/src/GLSL/include/OgreGLSLLinkProgramManager.h \
-	RenderSystems/GL/src/GLSL/include/OgreGLSLProgram.h \
 	RenderSystems/GL/src/GLSL/include/OgreGLSLExtSupport.h \
-	RenderSystems/GL/src/GLSL/include/OgreGLSLLinkProgram.h \
 	RenderSystems/GL/src/GLSL/include/OgreGLSLGpuProgram.h \
+	RenderSystems/GL/src/GLSL/include/OgreGLSLLinkProgram.h \
+	RenderSystems/GL/src/GLSL/include/OgreGLSLLinkProgramManager.h \
 	RenderSystems/GL/src/GLSL/include/OgreGLSLPreprocessor.h \
 	RenderSystems/GL/src/GLSL/include/OgreGLSLProgramFactory.h \
+	RenderSystems/GL/src/GLSL/include/OgreGLSLProgram.h \
 	RenderSystems/GL/src/GLX/OgreGLUtil.h \
 	RenderSystems/GL/src/gtk/OgreGLUtil.h \
+	RenderSystems/GL/src/nvparse/macro.h \
+	RenderSystems/GL/src/nvparse/nvparse_errors.h \
+	RenderSystems/GL/src/nvparse/nvparse_externs.h \
+	RenderSystems/GL/src/nvparse/nvparse.h \
+	RenderSystems/GL/src/nvparse/_ps1.0_parser.h \
+	RenderSystems/GL/src/nvparse/ps1.0_program.h \
+	RenderSystems/GL/src/nvparse/rc1.0_combiners.h \
+	RenderSystems/GL/src/nvparse/rc1.0_final.h \
 	RenderSystems/GL/src/nvparse/rc1.0_general.h \
+	RenderSystems/GL/src/nvparse/_rc1.0_parser.h \
+	RenderSystems/GL/src/nvparse/rc1.0_register.h \
 	RenderSystems/GL/src/nvparse/ts1.0_inst.h \
 	RenderSystems/GL/src/nvparse/ts1.0_inst_list.h \
-	RenderSystems/GL/src/nvparse/macro.h \
+	RenderSystems/GL/src/nvparse/_ts1.0_parser.h \
 	RenderSystems/GL/src/nvparse/vs1.0_inst.h \
 	RenderSystems/GL/src/nvparse/vs1.0_inst_list.h \
-	RenderSystems/GL/src/nvparse/_rc1.0_parser.h \
 	RenderSystems/GL/src/nvparse/_vs1.0_parser.h \
-	RenderSystems/GL/src/nvparse/nvparse_externs.h \
-	RenderSystems/GL/src/nvparse/rc1.0_combiners.h \
-	RenderSystems/GL/src/nvparse/nvparse_errors.h \
-	RenderSystems/GL/src/nvparse/_ps1.0_parser.h \
-	RenderSystems/GL/src/nvparse/rc1.0_final.h \
-	RenderSystems/GL/src/nvparse/_ts1.0_parser.h \
-	RenderSystems/GL/src/nvparse/rc1.0_register.h \
-	RenderSystems/GL/src/nvparse/nvparse.h \
-	RenderSystems/GL/src/nvparse/ps1.0_program.h \
 	RenderSystems/GL/src/SDL/OgreGLUtil.h \
+	Tools/XMLConverter/include/OgreXMLMeshSerializer.h \
+	Tools/XMLConverter/include/OgreXMLPrerequisites.h \
+	Tools/XMLConverter/include/OgreXMLSkeletonSerializer.h \
+	Tools/XMLConverter/include/tinystr.h \
+	Tools/XMLConverter/include/tinyxml.h \
 
 OGRE_INCLUDE_DIRS= \
 	. \
@@ -691,15 +688,13 @@ OGRE_INCLUDE_DIRS= \
 	RenderSystems/GL/src/GLSL/include \
 	RenderSystems/GL/include \
 	RenderSystems/GL/include/GLX \
-	RenderSystems/GL3Plus/src/GLX \
-	RenderSystems/GL3Plus/src/nvparse \
-	RenderSystems/GL3Plus/src/atifs/include \
-	RenderSystems/GL3Plus/src/GLSL/include \
+	RenderSystems/GL3Plus/include/GLSL \
 	RenderSystems/GL3Plus/include \
 	RenderSystems/GL3Plus/include/GLX \
 	PlugIns/CgProgramManager/include \
 	PlugIns/OctreeSceneManager/include \
 	Tools/XMLConverter/include \
+	Components/MeshLodGenerator/include \
 
 OGRE_DEFS= \
 	TIXML_USE_STL \
