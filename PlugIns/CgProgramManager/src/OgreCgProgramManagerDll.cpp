@@ -28,6 +28,7 @@ THE SOFTWARE.
 
 #include "OgreCgPrerequisites.h"
 #include "OgreCgPlugin.h"
+#include "OgreLogManager.h"
 #include "OgreRoot.h"
 
 namespace Ogre {
@@ -52,6 +53,7 @@ namespace Ogre {
     }
 #endif
 
+/*
     void checkForCgError(const String& ogreMethod, const String& errorTextPrefix, CGcontext context)
     {
         CGerror error = cgGetError();
@@ -66,6 +68,13 @@ namespace Ogre {
             }
             OGRE_EXCEPT(Exception::ERR_INTERNAL_ERROR, msg, ogreMethod);
         }
+    }
+*/
+    void checkForCgError(const String& ogreMethod, const String& errorTextPrefix, CGcontext context)
+    {
+        const char *msg = cgGetLastListing(context);
+        if (msg!=NULL)
+            LogManager::getSingleton().logMessage(std::string("CG error: ") + msg);
     }
 
 }

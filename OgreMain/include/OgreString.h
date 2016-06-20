@@ -97,6 +97,14 @@ namespace Ogre {
         */
         static vector<String>::type split( const String& str, const String& delims = "\t\n ", unsigned int maxSplits = 0, bool preserveDelims = false);
 
+        /** As split(), but understands quotes.
+            @param
+            delims As in split()
+            @param
+            maxSplits As in split()
+        */
+        static vector<String>::type splitExceptQuotes( const String& str, const String& delims = "\t\n ", unsigned int maxSplits = 0);
+
         /** Returns a StringVector that contains all the substrings delimited
             by the characters in the passed <code>delims</code> argument,
             or in the <code>doubleDelims</code> argument, which is used to include (normal)
