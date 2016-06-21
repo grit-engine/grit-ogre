@@ -60,12 +60,13 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="OgreMain\src\OgreArchive.cpp" />
+    <ClCompile Include="OgreMain\src\OgreAtomicScalar.cpp" />
     <ClCompile Include="OgreMain\src\OgreDualQuaternion.cpp" />
-    <ClCompile Include="OgreMain\src\OgreETC1Codec.cpp" />
     <ClCompile Include="OgreMain\src\OgreHardwareCounterBuffer.cpp" />
     <ClCompile Include="OgreMain\src\OgreHardwareUniformBuffer.cpp" />
-    <ClCompile Include="OgreMain\src\OgreProgressiveMeshGenerator.cpp" />
-    <ClCompile Include="OgreMain\src\OgreQueuedProgressiveMeshGenerator.cpp" />
+    <ClCompile Include="OgreMain\src\WIN32\OgreOptimisedUtilDirectXMath.cpp" />
+    <ClCompile Include="RenderSystems\Direct3D9\src\OgreDxErr.cpp" />
     <ClCompile Include="RenderSystems\GL\src\nvparse\_ps1.0_lexer.cpp" />
     <ClCompile Include="RenderSystems\GL\src\nvparse\_ps1.0_parser.cpp" />
     <ClCompile Include="RenderSystems\GL\src\nvparse\_rc1.0_lexer.cpp" />
@@ -185,6 +186,7 @@
     <ClCompile Include="RenderSystems\GL\src\GLSL\src\OgreGLSLPreprocessor.cpp" />
     <ClCompile Include="RenderSystems\GL\src\GLSL\src\OgreGLSLProgram.cpp" />
     <ClCompile Include="RenderSystems\GL\src\GLSL\src\OgreGLSLProgramFactory.cpp" />
+    <ClCompile Include="RenderSystems\GL\src\OgreGLStateCacheManager.cpp" />
     <ClCompile Include="RenderSystems\GL\src\OgreGLSupport.cpp" />
     <ClCompile Include="RenderSystems\GL\src\OgreGLTexture.cpp" />
     <ClCompile Include="RenderSystems\GL\src\OgreGLTextureManager.cpp" />
@@ -288,7 +290,6 @@
     <ClCompile Include="OgreMain\src\OgreScriptLexer.cpp" />
     <ClCompile Include="OgreMain\src\OgreScriptParser.cpp" />
     <ClCompile Include="OgreMain\src\OgreScriptTranslator.cpp" />
-    <ClCompile Include="OgreMain\src\OgreSearchOps.cpp" />
     <ClCompile Include="OgreMain\src\OgreSerializer.cpp" />
     <ClCompile Include="OgreMain\src\OgreShadowCameraSetup.cpp" />
     <ClCompile Include="OgreMain\src\OgreShadowCameraSetupFocused.cpp" />
@@ -304,7 +305,6 @@
     <ClCompile Include="OgreMain\src\OgreSkeletonInstance.cpp" />
     <ClCompile Include="OgreMain\src\OgreSkeletonManager.cpp" />
     <ClCompile Include="OgreMain\src\OgreSkeletonSerializer.cpp" />
-    <ClCompile Include="OgreMain\src\OgreSmallVector.cpp" />
     <ClCompile Include="OgreMain\src\OgreStaticGeometry.cpp" />
     <ClCompile Include="OgreMain\src\OgreStreamSerialiser.cpp" />
     <ClCompile Include="OgreMain\src\OgreString.cpp" />
@@ -327,10 +327,10 @@
     <ClCompile Include="OgreMain\src\OgreVector4.cpp" />
     <ClCompile Include="OgreMain\src\OgreVertexIndexData.cpp" />
     <ClCompile Include="OgreMain\src\OgreViewport.cpp" />
+    <ClCompile Include="RenderSystems\GL\src\OgreGLUniformCache.cpp" />
+    <ClCompile Include="RenderSystems\GL\src\StateCacheManager\OgreGLNullStateCacheManagerImp.cpp" />
+    <ClCompile Include="RenderSystems\GL\src\StateCacheManager\OgreGLNullUniformCacheImp.cpp" />
     <ClCompile Include="RenderSystems\GL\src\win32\OgreWin32Context.cpp" />
-    <ClCompile Include="RenderSystems\GL\src\OgreWin32GLSupport.cpp" />
-    <ClCompile Include="RenderSystems\GL\src\OgreWin32RenderTexture.cpp" />
-    <ClCompile Include="RenderSystems\GL\src\OgreWin32Window.cpp" />
     <ClCompile Include="OgreMain\src\OgreWindowEventUtilities.cpp" />
     <ClCompile Include="OgreMain\src\OgreWireBoundingBox.cpp" />
     <ClCompile Include="OgreMain\src\OgreWorkQueue.cpp" />
@@ -346,6 +346,9 @@
     <ClCompile Include="RenderSystems\GL\src\nvparse\vs1.0_inst.cpp" />
     <ClCompile Include="RenderSystems\GL\src\nvparse\vs1.0_inst_list.cpp" />
     <ClCompile Include="RenderSystems\GL\src\nvparse\vsp1.0_impl.cpp" />
+    <ClCompile Include="RenderSystems\GL\src\Win32\OgreWin32GLSupport.cpp" />
+    <ClCompile Include="RenderSystems\GL\src\Win32\OgreWin32RenderTexture.cpp" />
+    <ClCompile Include="RenderSystems\GL\src\Win32\OgreWin32Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OgreMain\include\asm_math.h" />
@@ -401,7 +404,6 @@
     <ClInclude Include="OgreMain\include\OgreEdgeListBuilder.h" />
     <ClInclude Include="OgreMain\include\OgreEntity.h" />
     <ClInclude Include="OgreMain\include\OgreErrorDialog.h" />
-    <ClInclude Include="OgreMain\include\OgreETC1Codec.h" />
     <ClInclude Include="OgreMain\include\OgreException.h" />
     <ClInclude Include="OgreMain\include\OgreExternalTextureSource.h" />
     <ClInclude Include="OgreMain\include\OgreExternalTextureSourceManager.h" />
@@ -499,10 +501,8 @@
     <ClInclude Include="OgreMain\include\OgrePrefabFactory.h" />
     <ClInclude Include="OgreMain\include\OgrePrerequisites.h" />
     <ClInclude Include="OgreMain\include\OgreProfiler.h" />
-    <ClInclude Include="OgreMain\include\OgreProgressiveMeshGenerator.h" />
     <ClInclude Include="OgreMain\include\OgrePVRTCCodec.h" />
     <ClInclude Include="OgreMain\include\OgreQuaternion.h" />
-    <ClInclude Include="OgreMain\include\OgreQueuedProgressiveMeshGenerator.h" />
     <ClInclude Include="OgreMain\include\OgreRadixSort.h" />
     <ClInclude Include="OgreMain\include\OgreRay.h" />
     <ClInclude Include="OgreMain\include\OgreRectangle2D.h" />
@@ -557,7 +557,6 @@
     <ClInclude Include="OgreMain\include\OgreSkeletonInstance.h" />
     <ClInclude Include="OgreMain\include\OgreSkeletonManager.h" />
     <ClInclude Include="OgreMain\include\OgreSkeletonSerializer.h" />
-    <ClInclude Include="OgreMain\include\OgreSmallVector.h" />
     <ClInclude Include="OgreMain\include\OgreSphere.h" />
     <ClInclude Include="OgreMain\include\OgreSpotShadowFadePng.h" />
     <ClInclude Include="OgreMain\include\OgreStableHeaders.h" />
