@@ -176,17 +176,12 @@ namespace Ogre {
             glShaderSourceARB(mGLHandle, 1, &source, NULL);
         }
 
-        if (checkErrors)
-        {
-            logObjectInfo("GLSL compiling: " + mName, mGLHandle);
-        }
-
         glCompileShaderARB(mGLHandle);
         // check for compile errors
         glGetObjectParameterivARB(mGLHandle, GL_OBJECT_COMPILE_STATUS_ARB, &mCompiled);
-        if(checkErrors)
+        if(checkErrors && !mCompiled)
         {
-            logObjectInfo(mCompiled ? "GLSL compiled: " : "GLSL compile log: "  + mName, mGLHandle);
+            logObjectInfo("GLSL compile failed: "  + mName, mGLHandle);
         }
 
         return (mCompiled == 1);
