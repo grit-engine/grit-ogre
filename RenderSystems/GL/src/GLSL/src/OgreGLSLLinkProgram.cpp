@@ -596,7 +596,7 @@ namespace Ogre {
         
         if(mLinked)
         {
-            logObjectInfo(  getCombinedName() + String(" GLSL link result : "), mGLHandle );
+            //logObjectInfo(  getCombinedName() + String(" GLSL link result : "), mGLHandle );
         }
 
         if (mLinked)
