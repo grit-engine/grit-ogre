@@ -277,12 +277,9 @@ OGRE_INCLUDE_DIRS= \
 	RenderSystems/GL/src/GLSL/include \
 	RenderSystems/GL/include \
 	RenderSystems/GL/include/GLX \
-	RenderSystems/GL3Plus/include/GLX \
-	RenderSystems/GL3Plus/include/nvparse \
-	RenderSystems/GL3Plus/include/atifs \
 	RenderSystems/GL3Plus/include/GLSL \
+	RenderSystems/GL3Plus/include/windowing/GLX \
 	RenderSystems/GL3Plus/include \
-	RenderSystems/GL3Plus/include/GLX \
 	Components/MeshLodGenerator/include \
 	PlugIns/CgProgramManager/include \
 	PlugIns/OctreeSceneManager/include \
