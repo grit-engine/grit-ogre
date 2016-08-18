@@ -26,21 +26,21 @@ THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
 
-#ifndef __GLXWindow_H__
-#define __GLXWindow_H__
+#ifndef __GL3PlusGLXWindow_H__
+#define __GL3PlusGLXWindow_H__
 
 #include "OgreRenderWindow.h"
-#include "OgreGLXContext.h"
-#include "OgreGLXGLSupport.h"
+#include "OgreGL3PlusGLXContext.h"
+#include "OgreGL3PlusGLXGLSupport.h"
 #include <X11/Xlib.h>
 
 namespace Ogre 
 {
-    class _OgrePrivate GLXWindow : public RenderWindow
+    class _OgrePrivate GL3PlusGLXWindow : public RenderWindow
     {
     public:
-        GLXWindow(GLXGLSupport* glsupport);
-        ~GLXWindow();
+        GL3PlusGLXWindow(GL3PlusGLXGLSupport* glsupport);
+        ~GL3PlusGLXWindow();
         
         void create(const String& name, unsigned int width, unsigned int height,
                     bool fullScreen, const NameValuePairList *miscParams);
@@ -116,9 +116,9 @@ namespace Ogre
         bool mVSync;
         int mVSyncInterval;
         
-        GLXGLSupport* mGLSupport;
+        GL3PlusGLXGLSupport* mGLSupport;
         ::Window      mWindow;
-        GLXContext*   mContext;
+        GL3PlusGLXContext*   mContext;
         void switchFullScreen(bool fullscreen);
     };
 }

@@ -26,7 +26,7 @@
   -----------------------------------------------------------------------------
 */
 
-#include "OgreGLSLExtSupport.h"
+#include "OgreGL3PlusGLSLExtSupport.h"
 #include "OgreLogManager.h"
 #include "OgreRoot.h"
 

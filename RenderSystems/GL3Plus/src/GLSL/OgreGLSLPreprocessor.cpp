@@ -26,7 +26,7 @@
   -----------------------------------------------------------------------------
 */
 
-#include "OgreGLSLPreprocessor.h"
+#include "OgreGL3PlusGLSLPreprocessor.h"
 #include "OgreLogManager.h"
 
 #include <ctype.h>

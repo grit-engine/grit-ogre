@@ -26,15 +26,15 @@
   -----------------------------------------------------------------------------
 */
 
-#include "OgreGLXWindow.h"
+#include "OgreGL3PlusGLXWindow.h"
 #include "OgreRoot.h"
 #include "OgreGL3PlusRenderSystem.h"
 #include "OgreImageCodec.h"
 #include "OgreException.h"
 #include "OgreLogManager.h"
 #include "OgreStringConverter.h"
-#include "OgreGLXUtils.h"
-#include "OgreGLXGLSupport.h"
+#include "OgreGL3PlusGLXUtils.h"
+#include "OgreGL3PlusGLXGLSupport.h"
 #include "OgreGL3PlusPixelFormat.h"
 #include "OgreWindowEventUtilities.h"
 #include "OgreViewport.h"
@@ -49,19 +49,19 @@
 
 extern "C"
 {
-    int
+    static int
     safeXErrorHandler (Display *display, XErrorEvent *event)
     {
         // Ignore all XErrorEvents
         return 0;
     }
-    int (*oldXErrorHandler)(Display *, XErrorEvent*);
+    static int (*oldXErrorHandler)(Display *, XErrorEvent*);
 }
 
 namespace Ogre
 {
     //-------------------------------------------------------------------------------------------------//
-    GLXWindow::GLXWindow(GLXGLSupport *glsupport) :
+    GL3PlusGLXWindow::GL3PlusGLXWindow(GL3PlusGLXGLSupport *glsupport) :
         mGLSupport(glsupport), mContext(0)
     {
         mWindow = 0;
@@ -78,7 +78,7 @@ namespace Ogre
     }
 
     //-------------------------------------------------------------------------------------------------//
-    GLXWindow::~GLXWindow()
+    GL3PlusGLXWindow::~GL3PlusGLXWindow()
     {
         Display* xDisplay = mGLSupport->getXDisplay();
 
@@ -104,7 +104,7 @@ namespace Ogre
     }
 
     //-------------------------------------------------------------------------------------------------//
-    void GLXWindow::create(const String& name, uint width, uint height,
+    void GL3PlusGLXWindow::create(const String& name, uint width, uint height,
                            bool fullScreen, const NameValuePairList *miscParams)
     {
         Display *xDisplay = mGLSupport->getXDisplay();
@@ -115,7 +115,7 @@ namespace Ogre
         bool hidden = false;
         unsigned int vsyncInterval = 1;
         int gamma = 0;
-        ::GLXContext glxContext = 0;
+        GLXContext glxContext = 0;
         ::GLXDrawable glxDrawable = 0;
         Window externalWindow = 0;
         Window parentWindow = DefaultRootWindow(xDisplay);
@@ -142,7 +142,7 @@ namespace Ogre
             {
                 if (! glXGetCurrentContext())
                 {
-                    OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR, "currentGLContext was specified with no current GL context", "GLXWindow::create");
+                    OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR, "currentGLContext was specified with no current GL context", "GL3PlusGLXWindow::create");
                 }
 
                 glxContext = glXGetCurrentContext();
@@ -209,7 +209,7 @@ namespace Ogre
                 vector<String>::type tokens = StringUtil::split(opt->second, " :");
 
                 LogManager::getSingleton().logMessage(
-                    "GLXWindow::create: The externalWindowHandle parameter is deprecated.\n"
+                    "GL3PlusGLXWindow::create: The externalWindowHandle parameter is deprecated.\n"
                     "Use the parentWindowHandle or currentGLContext parameter instead.");
 
                 if (tokens.size() == 3)
@@ -245,7 +245,7 @@ namespace Ogre
             if (! XGetWindowAttributes(xDisplay, parentWindow, &windowAttrib) ||
                 windowAttrib.root != DefaultRootWindow(xDisplay))
             {
-                OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR, "Invalid parentWindowHandle (wrong server or screen)", "GLXWindow::create");
+                OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR, "Invalid parentWindowHandle (wrong server or screen)", "GL3PlusGLXWindow::create");
             }
         }
 
@@ -258,7 +258,7 @@ namespace Ogre
             if (! XGetWindowAttributes(xDisplay, externalWindow, &windowAttrib) ||
                 windowAttrib.root != DefaultRootWindow(xDisplay))
             {
-                OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR, "Invalid externalWindowHandle (wrong server or screen)", "GLXWindow::create");
+                OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR, "Invalid externalWindowHandle (wrong server or screen)", "GL3PlusGLXWindow::create");
             }
             glxDrawable = externalWindow;
         }
@@ -321,7 +321,7 @@ namespace Ogre
         if (! fbConfig)
         {
             // This should never happen.
-            OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR, "Unexpected failure to determine a GLXFBConfig","GLXWindow::create");
+            OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR, "Unexpected failure to determine a GLXFBConfig","GL3PlusGLXWindow::create");
         }
 
         mIsTopLevel = (! mIsExternal && parentWindow == DefaultRootWindow(xDisplay));
@@ -351,7 +351,7 @@ namespace Ogre
 
             if(mIsFullScreen && mGLSupport->mAtomFullScreen == None)
             {
-                LogManager::getSingleton().logMessage("GLXWindow::switchFullScreen: Your WM has no fullscreen support");
+                LogManager::getSingleton().logMessage("GL3PlusGLXWindow::switchFullScreen: Your WM has no fullscreen support");
 
                 // A second best approach for outdated window managers
                 attr.backing_store = NotUseful;
@@ -368,7 +368,7 @@ namespace Ogre
 
             if(!mWindow)
             {
-                OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR, "Unable to create an X Window", "GLXWindow::create");
+                OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR, "Unable to create an X Window", "GL3PlusGLXWindow::create");
             }
 
             if (mIsTopLevel)
@@ -439,7 +439,7 @@ namespace Ogre
             WindowEventUtilities::_addRenderWindow(this);
         }
 
-        mContext = new GLXContext(mGLSupport, fbConfig, glxDrawable, glxContext);
+        mContext = new GL3PlusGLXContext(mGLSupport, fbConfig, glxDrawable, glxContext);
 
         // apply vsync settings. call setVSyncInterval first to avoid
         // setting vsync more than once.
@@ -450,7 +450,7 @@ namespace Ogre
 
         mGLSupport->getFBConfigAttrib(fbConfig, GLX_FBCONFIG_ID, &fbConfigID);
 
-        LogManager::getSingleton().logMessage("GLXWindow::create used FBConfigID = " + StringConverter::toString(fbConfigID));
+        LogManager::getSingleton().logMessage("GL3PlusGLXWindow::create used FBConfigID = " + StringConverter::toString(fbConfigID));
 
         mName = name;
         mWidth = width;
@@ -463,7 +463,7 @@ namespace Ogre
     }
 
     //-------------------------------------------------------------------------------------------------//
-    void GLXWindow::destroy(void)
+    void GL3PlusGLXWindow::destroy(void)
     {
         if (mClosed)
             return;
@@ -482,7 +482,7 @@ namespace Ogre
     }
 
     //-------------------------------------------------------------------------------------------------//
-    void GLXWindow::setFullscreen(bool fullscreen, uint width, uint height)
+    void GL3PlusGLXWindow::setFullscreen(bool fullscreen, uint width, uint height)
     {
         short frequency = 0;
 
@@ -495,7 +495,7 @@ namespace Ogre
         if (mIsFullScreen != fullscreen && &mGLSupport->mAtomFullScreen == None)
         {
             // Without WM support it is best to give up.
-            LogManager::getSingleton().logMessage("GLXWindow::switchFullScreen: Your WM has no fullscreen support");
+            LogManager::getSingleton().logMessage("GL3PlusGLXWindow::switchFullScreen: Your WM has no fullscreen support");
             return;
         }
         else if (fullscreen)
@@ -520,25 +520,25 @@ namespace Ogre
     }
 
     //-------------------------------------------------------------------------------------------------//
-    bool GLXWindow::isClosed() const
+    bool GL3PlusGLXWindow::isClosed() const
     {
         return mClosed;
     }
 
     //-------------------------------------------------------------------------------------------------//
-    bool GLXWindow::isVisible() const
+    bool GL3PlusGLXWindow::isVisible() const
     {
         return mVisible;
     }
 
     //-------------------------------------------------------------------------------------------------//
-    void GLXWindow::setVisible(bool visible)
+    void GL3PlusGLXWindow::setVisible(bool visible)
     {
         mVisible = visible;
     }
 
     //-------------------------------------------------------------------------------------------------//
-    void GLXWindow::setHidden(bool hidden)
+    void GL3PlusGLXWindow::setHidden(bool hidden)
     {
         mHidden = hidden;
         // ignore for external windows as these should handle
@@ -561,7 +561,7 @@ namespace Ogre
     }
 
     //-------------------------------------------------------------------------------------------------//
-    void GLXWindow::setVSyncInterval(unsigned int interval)
+    void GL3PlusGLXWindow::setVSyncInterval(unsigned int interval)
     {
         mVSyncInterval = interval;
         if (mVSync)
@@ -569,13 +569,13 @@ namespace Ogre
     }
 
     //-------------------------------------------------------------------------------------------------//
-    void GLXWindow::setVSyncEnabled(bool vsync)
+    void GL3PlusGLXWindow::setVSyncEnabled(bool vsync)
     {
         mVSync = vsync;
         // we need to make our context current to set vsync
         // store previous context to restore when finished.
         ::GLXDrawable oldDrawable = glXGetCurrentDrawable();
-        ::GLXContext  oldContext  = glXGetCurrentContext();
+        GLXContext  oldContext  = glXGetCurrentContext();
 
         mContext->setCurrent();
 
@@ -593,19 +593,19 @@ namespace Ogre
     }
 
     //-------------------------------------------------------------------------------------------------//
-    bool GLXWindow::isVSyncEnabled() const
+    bool GL3PlusGLXWindow::isVSyncEnabled() const
     {
         return mVSync;
     }
 
     //-------------------------------------------------------------------------------------------------//
-    unsigned int GLXWindow::getVSyncInterval() const
+    unsigned int GL3PlusGLXWindow::getVSyncInterval() const
     {
         return mVSyncInterval;
     }
 
     //-------------------------------------------------------------------------------------------------//
-    void GLXWindow::reposition(int left, int top)
+    void GL3PlusGLXWindow::reposition(int left, int top)
     {
         if (mClosed || ! mIsTopLevel)
             return;
@@ -614,7 +614,7 @@ namespace Ogre
     }
 
     //-------------------------------------------------------------------------------------------------//
-    void GLXWindow::resize(uint width, uint height)
+    void GL3PlusGLXWindow::resize(uint width, uint height)
     {
         if (mClosed)
             return;
@@ -640,7 +640,7 @@ namespace Ogre
     }
 
     //-------------------------------------------------------------------------------------------------//
-    void GLXWindow::windowMovedOrResized()
+    void GL3PlusGLXWindow::windowMovedOrResized()
     {
         if (mClosed || !mWindow)
             return;
@@ -677,7 +677,7 @@ namespace Ogre
     }
 
     //-------------------------------------------------------------------------------------------------//
-    void GLXWindow::swapBuffers()
+    void GL3PlusGLXWindow::swapBuffers()
     {
         if (mClosed || mIsExternalGLControl)
             return;
@@ -686,7 +686,7 @@ namespace Ogre
     }
 
     //-------------------------------------------------------------------------------------------------//
-    void GLXWindow::getCustomAttribute( const String& name, void* pData )
+    void GL3PlusGLXWindow::getCustomAttribute( const String& name, void* pData )
     {
         if( name == "DISPLAY NAME" )
         {
@@ -700,7 +700,7 @@ namespace Ogre
         }
         else if( name == "GLCONTEXT" )
         {
-            *static_cast<GLXContext**>(pData) = mContext;
+            *static_cast<GL3PlusGLXContext**>(pData) = mContext;
             return;
         }
         else if( name == "XDISPLAY" )
@@ -721,7 +721,7 @@ namespace Ogre
     }
 
     //-------------------------------------------------------------------------------------------------//
-    void GLXWindow::copyContentsToMemory(const PixelBox &dst, FrameBuffer buffer)
+    void GL3PlusGLXWindow::copyContentsToMemory(const PixelBox &dst, FrameBuffer buffer)
     {
         if (mClosed)
             return;
@@ -730,7 +730,7 @@ namespace Ogre
             dst.getHeight() > mHeight ||
             dst.front != 0 || dst.back != 1)
         {
-            OGRE_EXCEPT(Exception::ERR_INVALIDPARAMS, "Invalid box.", "GLXWindow::copyContentsToMemory" );
+            OGRE_EXCEPT(Exception::ERR_INVALIDPARAMS, "Invalid box.", "GL3PlusGLXWindow::copyContentsToMemory" );
         }
 
         if (buffer == FB_AUTO)
@@ -743,7 +743,7 @@ namespace Ogre
 
         if ((format == GL_NONE) || (type == 0))
         {
-            OGRE_EXCEPT(Exception::ERR_INVALIDPARAMS, "Unsupported format.", "GLXWindow::copyContentsToMemory" );
+            OGRE_EXCEPT(Exception::ERR_INVALIDPARAMS, "Unsupported format.", "GL3PlusGLXWindow::copyContentsToMemory" );
         }
 
         // Switch context if different from current one
@@ -768,7 +768,7 @@ namespace Ogre
     }
 
     //-------------------------------------------------------------------------------------------------//
-    void GLXWindow::switchFullScreen(bool fullscreen)
+    void GL3PlusGLXWindow::switchFullScreen(bool fullscreen)
     {
         if (&mGLSupport->mAtomFullScreen != None)
         {

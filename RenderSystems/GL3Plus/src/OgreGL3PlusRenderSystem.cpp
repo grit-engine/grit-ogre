@@ -43,7 +43,7 @@ Copyright (c) 2000-2014 Torus Knot Software Ltd
 #include "OgreGLSLShader.h"
 #include "OgreGLSLShaderManager.h"
 #include "OgreException.h"
-#include "OgreGLSLExtSupport.h"
+#include "OgreGL3PlusGLSLExtSupport.h"
 #include "OgreGL3PlusHardwareOcclusionQuery.h"
 #include "OgreGL3PlusDepthBuffer.h"
 #include "OgreGL3PlusHardwarePixelBuffer.h"
@@ -529,7 +529,7 @@ namespace Ogre {
         mShaderManager = OGRE_NEW GLSLShaderManager();
 
         // Create GLSL shader factory
-        mGLSLShaderFactory = new GLSLShaderFactory(*mGLSupport);
+        mGLSLShaderFactory = new GL3PlusGLSLShaderFactory(*mGLSupport);
         HighLevelGpuProgramManager::getSingleton().addFactory(mGLSLShaderFactory);
 
         // Set texture the number of texture units
@@ -1740,7 +1740,7 @@ namespace Ogre {
         if (mCurrentCapabilities->hasCapability(RSC_SEPARATE_SHADER_OBJECTS))
         {
             GLSLSeparableProgram* separableProgram =
-                GLSLSeparableProgramManager::getSingleton().getCurrentSeparableProgram();
+                GL3PlusGLSLSeparableProgramManager::getSingleton().getCurrentSeparableProgram();
             if (separableProgram)
             {
                 if (!op.renderToVertexBuffer)
@@ -1760,7 +1760,7 @@ namespace Ogre {
         }
         else
         {
-            GLSLMonolithicProgram* monolithicProgram = GLSLMonolithicProgramManager::getSingleton().getActiveMonolithicProgram();
+            GL3PlusGLSLMonolithicProgram* monolithicProgram = GL3PlusGLSLMonolithicProgramManager::getSingleton().getActiveMonolithicProgram();
             if (monolithicProgram)
             {
                 updateVAO = !monolithicProgram->getVertexArrayObject()->isInitialised();
@@ -1994,7 +1994,7 @@ namespace Ogre {
             if (mCurrentCapabilities->hasCapability(RSC_SEPARATE_SHADER_OBJECTS))
             {
                 GLSLSeparableProgram* separableProgram =
-                    GLSLSeparableProgramManager::getSingleton().getCurrentSeparableProgram();
+                    GL3PlusGLSLSeparableProgramManager::getSingleton().getCurrentSeparableProgram();
                 if (separableProgram)
                 {
                     separableProgram->getVertexArrayObject()->setInitialised(true);
@@ -2002,7 +2002,7 @@ namespace Ogre {
             }
             else
             {
-                GLSLMonolithicProgram* monolithicProgram = GLSLMonolithicProgramManager::getSingleton().getActiveMonolithicProgram();
+                GL3PlusGLSLMonolithicProgram* monolithicProgram = GL3PlusGLSLMonolithicProgramManager::getSingleton().getActiveMonolithicProgram();
                 if (monolithicProgram)
                 {
                     monolithicProgram->getVertexArrayObject()->setInitialised(true);
@@ -2404,7 +2404,7 @@ namespace Ogre {
 
     void GL3PlusRenderSystem::bindGpuProgram(GpuProgram* prg)
     {
-        GLSLShader* glprg = static_cast<GLSLShader*>(prg);
+        GL3PlusGLSLShader* glprg = static_cast<GL3PlusGLSLShader*>(prg);
 
         // Unbind previous shader first.
         //
@@ -2794,7 +2794,7 @@ namespace Ogre {
             if (mCurrentCapabilities->hasCapability(RSC_SEPARATE_SHADER_OBJECTS))
             {
                 GLSLSeparableProgram* separableProgram =
-                    GLSLSeparableProgramManager::getSingleton().getCurrentSeparableProgram();
+                    GL3PlusGLSLSeparableProgramManager::getSingleton().getCurrentSeparableProgram();
                 if (!separableProgram || !separableProgram->isAttributeValid(sem, elemIndex))
                 {
                     return;
@@ -2804,7 +2804,7 @@ namespace Ogre {
             }
             else
             {
-                GLSLMonolithicProgram* monolithicProgram = GLSLMonolithicProgramManager::getSingleton().getActiveMonolithicProgram();
+                GL3PlusGLSLMonolithicProgram* monolithicProgram = GL3PlusGLSLMonolithicProgramManager::getSingleton().getActiveMonolithicProgram();
                 if (!monolithicProgram || !monolithicProgram->isAttributeValid(sem, elemIndex))
                 {
                     return;

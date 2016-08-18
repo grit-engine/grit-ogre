@@ -25,20 +25,20 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
-#ifndef __OgreGLXContext_H__
-#define __OgreGLXContext_H__
+#ifndef __OgreGL3PlusGLXContext_H__
+#define __OgreGL3PlusGLXContext_H__
 
 #include "OgreGL3PlusContext.h"
-#include "OgreGLXGLSupport.h"
+#include "OgreGL3PlusGLXGLSupport.h"
 
 namespace Ogre {
 
-    class _OgrePrivate GLXContext: public GL3PlusContext
+    class _OgrePrivate GL3PlusGLXContext: public GL3PlusContext
     {
     public:
-        GLXContext(GLXGLSupport* glsupport, ::GLXFBConfig fbconfig, ::GLXDrawable drawable, ::GLXContext context = 0);
+        GL3PlusGLXContext(GL3PlusGLXGLSupport* glsupport, ::GLXFBConfig fbconfig, ::GLXDrawable drawable, GLXContext context = 0);
         
-        virtual ~GLXContext();
+        virtual ~GL3PlusGLXContext();
         
         /// @copydoc GL3PlusContext::setCurrent
         virtual void setCurrent();
@@ -50,11 +50,11 @@ namespace Ogre {
         GL3PlusContext* clone() const;
         
         ::GLXDrawable  mDrawable;
-        ::GLXContext   mContext;
+        GLXContext   mContext;
         
     private:
         ::GLXFBConfig  mFBConfig;
-        GLXGLSupport*  mGLSupport;
+        GL3PlusGLXGLSupport*  mGLSupport;
         bool mExternalContext;
     };
 }

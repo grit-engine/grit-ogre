@@ -25,13 +25,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
-#ifndef __GLXUtils_H__
-#define __GLXUtils_H__
+#ifndef __GL3PlusGLXUtils_H__
+#define __GL3PlusGLXUtils_H__
 
 #include "OgrePrerequisites.h"
 #define GLX_GLXEXT_PROTOTYPES
 #include <GL/glx.h>
-#include <GL/glxext.h>
+#include <GL/glx3ext.h>
 
 namespace Ogre
 {
@@ -46,13 +46,13 @@ namespace Ogre
         static PFNGLXGETVISUALFROMFBCONFIGPROC getVisualFromFBConfig;
 
         /**
-         * Get the GLXFBConfig used to create a ::GLXContext
+         * Get the GLXFBConfig used to create a GLXContext
          *
          * @param display   X Display
-         * @param drawable   GLXContext
+         * @param drawable   GL3PlusGLXContext
          * @returns       GLXFBConfig used to create the context
          */
-        static GLXFBConfig getFBConfigFromContext (Display *display, ::GLXContext context);
+        static GLXFBConfig getFBConfigFromContext (Display *display, GLXContext context);
 
         /**
          * Get the GLXFBConfig used to create a GLXDrawable.

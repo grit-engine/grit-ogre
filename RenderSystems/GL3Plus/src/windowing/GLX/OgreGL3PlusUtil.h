@@ -29,13 +29,13 @@
 #ifndef INCL_OGRE_GLUTIL_H
 #define INCL_OGRE_GLUTIL_H
 
-#include "OgreGLXGLSupport.h"
+#include "OgreGL3PlusGLXGLSupport.h"
 
 namespace Ogre {
 
     inline GL3PlusSupport* getGLSupport()
     {
-        return new GLXGLSupport();
+        return new GL3PlusGLXGLSupport();
     }
 
 }

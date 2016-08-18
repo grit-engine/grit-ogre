@@ -44,9 +44,9 @@ namespace Ogre {
         be accessed by the application.  GLSL also does not provide
         assembler low level output after compiling.  The GL Render
         system assumes that the Gpu program is a GL GPU program so
-        GLSLShader will create a GL3PlusShader
+        GL3PlusGLSLShader will create a GL3PlusShader
         for the low level implementation.  The
-        GLSLShader class will create a shader object and compile the
+        GL3PlusGLSLShader class will create a shader object and compile the
         source but will not create a program object.  It's up to
         GL3PlusShader class to request a program object to link the
         shader object to.
@@ -58,7 +58,7 @@ namespace Ogre {
         command.  All the modules to be attached are listed on the
         same line as the attach command separated by white space.
     */
-    class _OgreGL3PlusExport GLSLShader : public HighLevelGpuProgram
+    class _OgreGL3PlusExport GL3PlusGLSLShader : public HighLevelGpuProgram
     {
     public:
         /// Command object for attaching another GLSL Program
@@ -132,7 +132,7 @@ namespace Ogre {
         virtual void setMaxOutputVertices(int maxOutputVertices)
         { mMaxOutputVertices = maxOutputVertices; }
 
-        GLSLShader(ResourceManager* creator,
+        GL3PlusGLSLShader(ResourceManager* creator,
                    const String& name, ResourceHandle handle,
                    const String& group, bool isManual, ManualResourceLoader* loader);
         // GL3PlusShader(
@@ -140,7 +140,7 @@ namespace Ogre {
         //     ResourceHandle handle,
         //     const String& group, bool isManual = false, 
         //     ManualResourceLoader* loader = 0);
-        ~GLSLShader();
+        ~GL3PlusGLSLShader();
 
         GLuint getGLShaderHandle() const { return mGLShaderHandle; }
         GLuint getGLProgramHandle();
@@ -277,7 +277,7 @@ namespace Ogre {
         /// Matrix in column major pack format?
         bool mColumnMajorMatrices;
 
-        typedef vector< GLSLShader* >::type GLSLShaderContainer;
+        typedef vector< GL3PlusGLSLShader* >::type GLSLShaderContainer;
         typedef GLSLShaderContainer::iterator GLSLShaderContainerIterator;
         /// Container of attached shaders.
         GLSLShaderContainer mAttachedGLSLShaders;

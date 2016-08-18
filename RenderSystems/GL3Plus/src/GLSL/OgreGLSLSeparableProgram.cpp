@@ -36,12 +36,12 @@
 
 namespace Ogre
 {
-    GLSLSeparableProgram::GLSLSeparableProgram(GLSLShader* vertexShader,
-                                               GLSLShader* hullShader,
-                                               GLSLShader* domainShader,
-                                               GLSLShader* geometryShader,
-                                               GLSLShader* fragmentShader,
-                                               GLSLShader* computeShader) :
+    GLSLSeparableProgram::GLSLSeparableProgram(GL3PlusGLSLShader* vertexShader,
+                                               GL3PlusGLSLShader* hullShader,
+                                               GL3PlusGLSLShader* domainShader,
+                                               GL3PlusGLSLShader* geometryShader,
+                                               GL3PlusGLSLShader* fragmentShader,
+                                               GL3PlusGLSLShader* computeShader) :
         GLSLProgram(vertexShader,
                     hullShader,
                     domainShader,
@@ -134,7 +134,7 @@ namespace Ogre
         }
     }
 
-    void GLSLSeparableProgram::loadIndividualProgram(GLSLShader *program)
+    void GLSLSeparableProgram::loadIndividualProgram(GL3PlusGLSLShader *program)
     {
         if (program)
         {
@@ -318,42 +318,42 @@ namespace Ogre
             if (mVertexShader)
             {
                 vertParams = &(mVertexShader->getConstantDefinitions().map);
-                GLSLSeparableProgramManager::getSingleton().extractUniformsFromProgram(mVertexShader->getGLProgramHandle(),
+                GL3PlusGLSLSeparableProgramManager::getSingleton().extractUniformsFromProgram(mVertexShader->getGLProgramHandle(),
                                                                                        vertParams, NULL, NULL, NULL, NULL, NULL,
                                                                                        mGLUniformReferences, mGLAtomicCounterReferences, mGLUniformBufferReferences, mSharedParamsBufferMap, mGLCounterBufferReferences);
             }
             if (mHullShader)
             {
                 hullParams = &(mHullShader->getConstantDefinitions().map);
-                GLSLSeparableProgramManager::getSingleton().extractUniformsFromProgram(mHullShader->getGLProgramHandle(),
+                GL3PlusGLSLSeparableProgramManager::getSingleton().extractUniformsFromProgram(mHullShader->getGLProgramHandle(),
                                                                                        NULL, NULL, NULL, hullParams, NULL, NULL,
                                                                                        mGLUniformReferences, mGLAtomicCounterReferences, mGLUniformBufferReferences, mSharedParamsBufferMap, mGLCounterBufferReferences);
             }
             if (mDomainShader)
             {
                 domainParams = &(mDomainShader->getConstantDefinitions().map);
-                GLSLSeparableProgramManager::getSingleton().extractUniformsFromProgram(mDomainShader->getGLProgramHandle(),
+                GL3PlusGLSLSeparableProgramManager::getSingleton().extractUniformsFromProgram(mDomainShader->getGLProgramHandle(),
                                                                                        NULL, NULL, NULL, NULL, domainParams, NULL,
                                                                                        mGLUniformReferences, mGLAtomicCounterReferences, mGLUniformBufferReferences, mSharedParamsBufferMap, mGLCounterBufferReferences);
             }
             if (mGeometryShader)
             {
                 geomParams = &(mGeometryShader->getConstantDefinitions().map);
-                GLSLSeparableProgramManager::getSingleton().extractUniformsFromProgram(mGeometryShader->getGLProgramHandle(),
+                GL3PlusGLSLSeparableProgramManager::getSingleton().extractUniformsFromProgram(mGeometryShader->getGLProgramHandle(),
                                                                                        NULL, geomParams, NULL, NULL, NULL, NULL,
                                                                                        mGLUniformReferences, mGLAtomicCounterReferences, mGLUniformBufferReferences, mSharedParamsBufferMap, mGLCounterBufferReferences);
             }
             if (mFragmentShader)
             {
                 fragParams = &(mFragmentShader->getConstantDefinitions().map);
-                GLSLSeparableProgramManager::getSingleton().extractUniformsFromProgram(mFragmentShader->getGLProgramHandle(),
+                GL3PlusGLSLSeparableProgramManager::getSingleton().extractUniformsFromProgram(mFragmentShader->getGLProgramHandle(),
                                                                                        NULL, NULL, fragParams, NULL, NULL, NULL,
                                                                                        mGLUniformReferences, mGLAtomicCounterReferences, mGLUniformBufferReferences, mSharedParamsBufferMap, mGLCounterBufferReferences);
             }
             if (mComputeShader)
             {
                 computeParams = &(mComputeShader->getConstantDefinitions().map);
-                GLSLSeparableProgramManager::getSingleton().extractUniformsFromProgram(mComputeShader->getGLProgramHandle(),
+                GL3PlusGLSLSeparableProgramManager::getSingleton().extractUniformsFromProgram(mComputeShader->getGLProgramHandle(),
                                                                                        NULL, NULL, NULL, NULL, NULL, computeParams,
                                                                                        mGLUniformReferences, mGLAtomicCounterReferences, mGLUniformBufferReferences, mSharedParamsBufferMap, mGLCounterBufferReferences);
             }

@@ -35,29 +35,29 @@
 namespace Ogre 
 {
 
-    GLSLMonolithicProgramManager* GLSLShaderFactory::mMonolithicProgramManager = NULL;
-    GLSLSeparableProgramManager* GLSLShaderFactory::mSeparableProgramManager = NULL;
+    GL3PlusGLSLMonolithicProgramManager* GL3PlusGLSLShaderFactory::mMonolithicProgramManager = NULL;
+    GL3PlusGLSLSeparableProgramManager* GL3PlusGLSLShaderFactory::mSeparableProgramManager = NULL;
     
-    String GLSLShaderFactory::mLanguageName = "glsl";
+    String GL3PlusGLSLShaderFactory::mLanguageName = "glsl";
     
 
-    GLSLShaderFactory::GLSLShaderFactory(const GL3PlusSupport& support)
+    GL3PlusGLSLShaderFactory::GL3PlusGLSLShaderFactory(const GL3PlusSupport& support)
     {
         if (mMonolithicProgramManager == NULL)
         {
-            mMonolithicProgramManager = new GLSLMonolithicProgramManager(support);
+            mMonolithicProgramManager = new GL3PlusGLSLMonolithicProgramManager(support);
         }
         if(Root::getSingleton().getRenderSystem()->getCapabilities()->hasCapability(RSC_SEPARATE_SHADER_OBJECTS))
         {
             if (mSeparableProgramManager == NULL)
             {
-                mSeparableProgramManager = new GLSLSeparableProgramManager(support);
+                mSeparableProgramManager = new GL3PlusGLSLSeparableProgramManager(support);
             }
         }
     }
     
 
-    GLSLShaderFactory::~GLSLShaderFactory(void)
+    GL3PlusGLSLShaderFactory::~GL3PlusGLSLShaderFactory(void)
     {
         if (mMonolithicProgramManager)
         {
@@ -76,22 +76,22 @@ namespace Ogre
     }
     
 
-    const String& GLSLShaderFactory::getLanguage(void) const
+    const String& GL3PlusGLSLShaderFactory::getLanguage(void) const
     {
         return mLanguageName;
     }
     
 
-    HighLevelGpuProgram* GLSLShaderFactory::create(
+    HighLevelGpuProgram* GL3PlusGLSLShaderFactory::create(
         ResourceManager* creator,
         const String& name, ResourceHandle handle,
         const String& group, bool isManual, ManualResourceLoader* loader)
     {
-        return OGRE_NEW GLSLShader(creator, name, handle, group, isManual, loader);
+        return OGRE_NEW GL3PlusGLSLShader(creator, name, handle, group, isManual, loader);
     }
     
 
-    void GLSLShaderFactory::destroy(HighLevelGpuProgram* prog)
+    void GL3PlusGLSLShaderFactory::destroy(HighLevelGpuProgram* prog)
     {
         OGRE_DELETE prog;
     }
