@@ -30,20 +30,20 @@
 #define __GLSLShaderFactory_H__
 
 #include "OgreHighLevelGpuProgramManager.h"
-#include "OgreGLSLExtSupport.h"
+#include "OgreGL3PlusGLSLExtSupport.h"
 
 namespace Ogre
 {
     /** Factory class for GLSL shaders.
      */
-    class _OgreGL3PlusExport GLSLShaderFactory : public HighLevelGpuProgramFactory
+    class _OgreGL3PlusExport GL3PlusGLSLShaderFactory : public HighLevelGpuProgramFactory
     {
     protected:
         static String mLanguageName;
 
     public:
-        GLSLShaderFactory(const GL3PlusSupport& support);
-        ~GLSLShaderFactory(void);
+        GL3PlusGLSLShaderFactory(const GL3PlusSupport& support);
+        ~GL3PlusGLSLShaderFactory(void);
         /// Get the name of the language this factory creates shaders for.
         const String& getLanguage(void) const;
         /// Create an instance of GLSLProgram.
@@ -53,8 +53,8 @@ namespace Ogre
         void destroy(HighLevelGpuProgram* prog);
 
     private:
-        static GLSLMonolithicProgramManager* mMonolithicProgramManager;
-        static GLSLSeparableProgramManager* mSeparableProgramManager;
+        static GL3PlusGLSLMonolithicProgramManager* mMonolithicProgramManager;
+        static GL3PlusGLSLSeparableProgramManager* mSeparableProgramManager;
     };
 }
 

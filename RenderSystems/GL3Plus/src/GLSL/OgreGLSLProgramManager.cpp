@@ -40,7 +40,7 @@
 namespace Ogre {
 
     
-    GLSLProgramManager::GLSLProgramManager(const GL3PlusSupport& support) :
+    GL3PlusGLSLProgramManager::GL3PlusGLSLProgramManager(const GL3PlusSupport& support) :
         mActiveVertexShader(NULL),
         mActiveHullShader(NULL),
         mActiveDomainShader(NULL),
@@ -183,7 +183,7 @@ namespace Ogre {
         mTypeEnumMap.insert(StringToEnumMap::value_type("atomic_uint", GL_UNSIGNED_INT_ATOMIC_COUNTER));
     }
     
-    void GLSLProgramManager::convertGLUniformtoOgreType(GLenum gltype,
+    void GL3PlusGLSLProgramManager::convertGLUniformtoOgreType(GLenum gltype,
                                                         GpuConstantDefinition& defToUpdate)
     {
         // Note GLSL never packs rows into float4's (from an API perspective anyway)
@@ -356,7 +356,7 @@ namespace Ogre {
     }
 
     
-    bool GLSLProgramManager::findUniformDataSource(
+    bool GL3PlusGLSLProgramManager::findUniformDataSource(
         const String& paramName,
         const GpuConstantDefinitionMap* vertexConstantDefs,
         const GpuConstantDefinitionMap* hullConstantDefs,
@@ -438,7 +438,7 @@ namespace Ogre {
     
     //FIXME This is code bloat...either template or unify UniformReference
     // and AtomicCounterReference
-    bool GLSLProgramManager::findAtomicCounterDataSource(
+    bool GL3PlusGLSLProgramManager::findAtomicCounterDataSource(
         const String& paramName,
         const GpuConstantDefinitionMap* vertexConstantDefs,
         const GpuConstantDefinitionMap* hullConstantDefs,
@@ -519,7 +519,7 @@ namespace Ogre {
 
 
     
-    void GLSLProgramManager::extractUniformsFromProgram(
+    void GL3PlusGLSLProgramManager::extractUniformsFromProgram(
         GLuint programObject,
         const GpuConstantDefinitionMap* vertexConstantDefs,
         const GpuConstantDefinitionMap* hullConstantDefs,
@@ -850,12 +850,12 @@ namespace Ogre {
         }
     }
     
-    void GLSLProgramManager::extractUniformsFromGLSL(
+    void GL3PlusGLSLProgramManager::extractUniformsFromGLSL(
         const String& src, GpuNamedConstants& defs, const String& filename)
     {
         // Parse the output string and collect all uniforms
         // NOTE this relies on the source already having been preprocessed
-        // which is done in GLSLShader::loadFromSource
+        // which is done in GL3PlusGLSLShader::loadFromSource
         String line;
         String::size_type currPos = src.find("uniform");
         while (currPos != String::npos)
@@ -991,7 +991,7 @@ namespace Ogre {
     }
 
     
-    void GLSLProgramManager::parseGLSLUniform(
+    void GL3PlusGLSLProgramManager::parseGLSLUniform(
         const String& src, GpuNamedConstants& defs,
         String::size_type currPos,
         const String& filename, GpuSharedParametersPtr sharedParams)

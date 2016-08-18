@@ -25,21 +25,21 @@
   THE SOFTWARE.
   -----------------------------------------------------------------------------
 */
-#ifndef OGRE_GLXGLSupport_H
-#define OGRE_GLXGLSupport_H
+#ifndef OGRE_GL3PlusGLXGLSupport_H
+#define OGRE_GL3PlusGLXGLSupport_H
 
 #include "OgreGL3PlusSupport.h"
 #define GLX_GLXEXT_PROTOTYPES
 #include <GL/glx.h>
-#include <GL/glxext.h>
+#include <GL/glx3ext.h>
 
 namespace Ogre {
 
-    class _OgrePrivate GLXGLSupport : public GL3PlusSupport
+    class _OgrePrivate GL3PlusGLXGLSupport : public GL3PlusSupport
     {
     public:
-        GLXGLSupport();
-        ~GLXGLSupport();
+        GL3PlusGLXGLSupport();
+        ~GL3PlusGLXGLSupport();
 
         Atom mAtomDeleteWindow;
         Atom mAtomFullScreen;
@@ -134,12 +134,12 @@ namespace Ogre {
         bool loadIcon(const String &name, Pixmap *pix, Pixmap *mask);
 
         /**
-         * Get the GLXFBConfig used to create a ::GLXContext
+         * Get the GLXFBConfig used to create a GLXContext
          *
-         * @param drawable   GLXContext
+         * @param drawable   GL3PlusGLXContext
          * @returns               GLXFBConfig used to create the context
          */
-        GLXFBConfig getFBConfigFromContext (::GLXContext context);
+        GLXFBConfig getFBConfigFromContext (GLXContext context);
 
         /**
          * Get the GLXFBConfig used to create a GLXDrawable.
@@ -181,7 +181,7 @@ namespace Ogre {
         /**
          * Portable replacement for glXCreateNewContext
          */
-        ::GLXContext createNewContext(GLXFBConfig fbConfig, GLint renderType, ::GLXContext shareList, GLboolean direct) const;
+        GLXContext createNewContext(GLXFBConfig fbConfig, GLint renderType, GLXContext shareList, GLboolean direct) const;
 
         /**
          * Portable replacement for glXGetFBConfigAttrib
@@ -217,4 +217,4 @@ namespace Ogre {
     };
 }
 
-#endif // OGRE_GLXGLSupport_H
+#endif // OGRE_GL3PlusGLXGLSupport_H

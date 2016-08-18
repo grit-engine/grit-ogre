@@ -29,7 +29,7 @@
 #define __GLSLSeparableProgram_H__
 
 #include "OgreGL3PlusPrerequisites.h"
-#include "OgreGLSLProgram.h"
+#include "OgreGL3PlusGLSLProgram.h"
 
 namespace Ogre
 {
@@ -73,13 +73,13 @@ namespace Ogre
     class _OgreGL3PlusExport GLSLSeparableProgram : public GLSLProgram
     {
     public:
-        /// Constructor should only be used by GLSLSeparableProgramManager.
-        GLSLSeparableProgram(GLSLShader* vertexShader,
-                             GLSLShader* hullShader,
-                             GLSLShader* domainShader,
-                             GLSLShader* geometryShader,
-                             GLSLShader* fragmentShader,
-                             GLSLShader* computeShader);
+        /// Constructor should only be used by GL3PlusGLSLSeparableProgramManager.
+        GLSLSeparableProgram(GL3PlusGLSLShader* vertexShader,
+                             GL3PlusGLSLShader* hullShader,
+                             GL3PlusGLSLShader* domainShader,
+                             GL3PlusGLSLShader* geometryShader,
+                             GL3PlusGLSLShader* fragmentShader,
+                             GL3PlusGLSLShader* computeShader);
         ~GLSLSeparableProgram();
 
         /// GL Program Pipeline Handle
@@ -87,28 +87,28 @@ namespace Ogre
 
         /** Updates program pipeline object uniforms using named and
             indexed parameter data from GpuProgramParameters.
-            normally called by GLSLShader::bindProgramParameters()
+            normally called by GL3PlusGLSLShader::bindProgramParameters()
             just before rendering occurs.
         */
         void updateUniforms(GpuProgramParametersSharedPtr params,
                             uint16 mask, GpuProgramType fromProgType);
         /** Updates program object atomic counter buffers using data
             from GpuProgramParameters.  Normally called by
-            GLSLShader::bindProgramAtomicCounterParameters() just
+            GL3PlusGLSLShader::bindProgramAtomicCounterParameters() just
             before rendering occurs.
         */
         void updateAtomicCounters(GpuProgramParametersSharedPtr params,
                                   uint16 mask, GpuProgramType fromProgType);
         /** Updates program object uniform blocks using shared
             parameter data from GpuProgramParameters.  Normally called
-            by GLSLShader::bindProgramSharedParameters() just before
+            by GL3PlusGLSLShader::bindProgramSharedParameters() just before
             rendering occurs.
         */
         void updateUniformBlocks(GpuProgramParametersSharedPtr params,
                                  uint16 mask, GpuProgramType fromProgType);
         /** Updates program pipeline object uniforms using data from
             pass iteration GpuProgramParameters.  Normally called by
-            GLSLShader::bindProgramPassIterationParameters() just
+            GL3PlusGLSLShader::bindProgramPassIterationParameters() just
             before multi pass rendering occurs.
         */
         void updatePassIterationUniforms(GpuProgramParametersSharedPtr params);
@@ -129,14 +129,14 @@ namespace Ogre
 
         /// Compiles and links the separate programs.
         void compileAndLink(void);
-        void loadIndividualProgram(GLSLShader *program);
+        void loadIndividualProgram(GL3PlusGLSLShader *program);
         // /// Put a program pipeline in use.
         // void _useProgram(void);
         /// Build uniform references from active named uniforms.
         void buildGLUniformReferences(void);
 
         void getMicrocodeFromCache(void);
-        void getIndividualProgramMicrocodeFromCache(GLSLShader* program);
+        void getIndividualProgramMicrocodeFromCache(GL3PlusGLSLShader* program);
     };
 }
 

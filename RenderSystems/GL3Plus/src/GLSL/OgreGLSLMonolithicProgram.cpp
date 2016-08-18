@@ -27,7 +27,7 @@
 */
 
 #include "OgreGLSLMonolithicProgram.h"
-#include "OgreGLSLExtSupport.h"
+#include "OgreGL3PlusGLSLExtSupport.h"
 #include "OgreGLSLShader.h"
 #include "OgreGLSLMonolithicProgramManager.h"
 #include "OgreGL3PlusRenderSystem.h"
@@ -74,17 +74,17 @@ namespace Ogre {
             OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR,
                         "Geometry shader output operation type can only be point list,"
                         "line strip or triangle strip",
-                        "GLSLMonolithicProgram::getGLGeometryOutputPrimitiveType");
+                        "GL3PlusGLSLMonolithicProgram::getGLGeometryOutputPrimitiveType");
         }
     }
 
 
-    GLSLMonolithicProgram::GLSLMonolithicProgram(GLSLShader* vertexProgram,
-                                                 GLSLShader* hullProgram,
-                                                 GLSLShader* domainProgram,
-                                                 GLSLShader* geometryProgram,
-                                                 GLSLShader* fragmentProgram,
-                                                 GLSLShader* computeProgram)
+    GL3PlusGLSLMonolithicProgram::GL3PlusGLSLMonolithicProgram(GL3PlusGLSLShader* vertexProgram,
+                                                 GL3PlusGLSLShader* hullProgram,
+                                                 GL3PlusGLSLShader* domainProgram,
+                                                 GL3PlusGLSLShader* geometryProgram,
+                                                 GL3PlusGLSLShader* fragmentProgram,
+                                                 GL3PlusGLSLShader* computeProgram)
         : GLSLProgram(vertexProgram,
                       hullProgram,
                       domainProgram,
@@ -95,13 +95,13 @@ namespace Ogre {
     }
 
 
-    GLSLMonolithicProgram::~GLSLMonolithicProgram(void)
+    GL3PlusGLSLMonolithicProgram::~GL3PlusGLSLMonolithicProgram(void)
     {
         OGRE_CHECK_GL_ERROR(glDeleteProgram(mGLProgramHandle));
     }
 
 
-    void GLSLMonolithicProgram::_useProgram(void)
+    void GL3PlusGLSLMonolithicProgram::_useProgram(void)
     {
         if (mLinked)
         {
@@ -110,7 +110,7 @@ namespace Ogre {
     }
 
 
-    void GLSLMonolithicProgram::activate(void)
+    void GL3PlusGLSLMonolithicProgram::activate(void)
     {
         if (!mLinked && !mTriedToLinkAndFailed)
         {
@@ -134,7 +134,7 @@ namespace Ogre {
     }
 
 
-    void GLSLMonolithicProgram::compileAndLink()
+    void GL3PlusGLSLMonolithicProgram::compileAndLink()
     {
         mVertexArrayObject = new GL3PlusVertexArrayObject();
         mVertexArrayObject->bind();
@@ -246,7 +246,7 @@ namespace Ogre {
     }
 
 
-    void GLSLMonolithicProgram::buildGLUniformReferences(void)
+    void GL3PlusGLSLMonolithicProgram::buildGLUniformReferences(void)
     {
         if (!mUniformRefsBuilt)
         {
@@ -282,7 +282,7 @@ namespace Ogre {
             }
 
             // Do we know how many shared params there are yet? Or if there are any blocks defined?
-            GLSLMonolithicProgramManager::getSingleton().extractUniformsFromProgram(
+            GL3PlusGLSLMonolithicProgramManager::getSingleton().extractUniformsFromProgram(
                 mGLProgramHandle, vertParams, geomParams, fragParams, hullParams, domainParams, computeParams,
                 mGLUniformReferences, mGLAtomicCounterReferences, mGLUniformBufferReferences, mSharedParamsBufferMap, mGLCounterBufferReferences);
 
@@ -291,7 +291,7 @@ namespace Ogre {
     }
 
 
-    void GLSLMonolithicProgram::updateUniforms(GpuProgramParametersSharedPtr params,
+    void GL3PlusGLSLMonolithicProgram::updateUniforms(GpuProgramParametersSharedPtr params,
                                                uint16 mask, GpuProgramType fromProgType)
     {
         // Iterate through uniform reference list and update uniform values
@@ -490,7 +490,7 @@ namespace Ogre {
     }
 
 
-    void GLSLMonolithicProgram::updateUniformBlocks(GpuProgramParametersSharedPtr params,
+    void GL3PlusGLSLMonolithicProgram::updateUniformBlocks(GpuProgramParametersSharedPtr params,
                                                     uint16 mask, GpuProgramType fromProgType)
     {
         // Iterate through the list of uniform buffers and update them as needed
@@ -518,7 +518,7 @@ namespace Ogre {
     }
 
 
-    void GLSLMonolithicProgram::updatePassIterationUniforms(GpuProgramParametersSharedPtr params)
+    void GL3PlusGLSLMonolithicProgram::updatePassIterationUniforms(GpuProgramParametersSharedPtr params)
     {
         if (params->hasPassIterationNumber())
         {

@@ -1,5 +1,5 @@
-#ifndef __wglext_h_
-#define __wglext_h_ 1
+#ifndef __wgl3ext_h_
+#define __wgl3ext_h_ 1
 
 #ifdef __cplusplus
 extern "C" {

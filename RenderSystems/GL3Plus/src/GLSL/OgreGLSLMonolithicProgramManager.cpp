@@ -32,37 +32,37 @@
 #include "OgreGLSLShader.h"
 #include "OgreLogManager.h"
 #include "OgreStringConverter.h"
-#include "OgreGLSLProgram.h"
+#include "OgreGL3PlusGLSLProgram.h"
 #include "OgreGpuProgramManager.h"
 #include "OgreHardwareBufferManager.h"
 
 namespace Ogre {
 
 
-    template<> GLSLMonolithicProgramManager* Singleton<GLSLMonolithicProgramManager>::msSingleton = 0;
+    template<> GL3PlusGLSLMonolithicProgramManager* Singleton<GL3PlusGLSLMonolithicProgramManager>::msSingleton = 0;
 
 
-    GLSLMonolithicProgramManager* GLSLMonolithicProgramManager::getSingletonPtr(void)
+    GL3PlusGLSLMonolithicProgramManager* GL3PlusGLSLMonolithicProgramManager::getSingletonPtr(void)
     {
         return msSingleton;
     }
 
 
-    GLSLMonolithicProgramManager& GLSLMonolithicProgramManager::getSingleton(void)
+    GL3PlusGLSLMonolithicProgramManager& GL3PlusGLSLMonolithicProgramManager::getSingleton(void)
     {
         assert(msSingleton);  
         return (*msSingleton);
     }
 
 
-    GLSLMonolithicProgramManager::GLSLMonolithicProgramManager(const GL3PlusSupport& support) :
-        GLSLProgramManager(support),
+    GL3PlusGLSLMonolithicProgramManager::GL3PlusGLSLMonolithicProgramManager(const GL3PlusSupport& support) :
+        GL3PlusGLSLProgramManager(support),
         mActiveMonolithicProgram(NULL)
     {
     }
 
 
-    GLSLMonolithicProgramManager::~GLSLMonolithicProgramManager(void)
+    GL3PlusGLSLMonolithicProgramManager::~GL3PlusGLSLMonolithicProgramManager(void)
     {
         // iterate through map container and delete link programs
         for (MonolithicProgramIterator currentProgram = mMonolithicPrograms.begin();
@@ -73,7 +73,7 @@ namespace Ogre {
     }
 
 
-    GLSLMonolithicProgram* GLSLMonolithicProgramManager::getActiveMonolithicProgram(void)
+    GL3PlusGLSLMonolithicProgram* GL3PlusGLSLMonolithicProgramManager::getActiveMonolithicProgram(void)
     {
         // If there is an active link program then return it.
         if (mActiveMonolithicProgram)
@@ -123,7 +123,7 @@ namespace Ogre {
             // Program object not found for key so need to create it.
             if (programFound == mMonolithicPrograms.end())
             {
-                mActiveMonolithicProgram = new GLSLMonolithicProgram(
+                mActiveMonolithicProgram = new GL3PlusGLSLMonolithicProgram(
                     mActiveVertexShader,
                     mActiveHullShader,
                     mActiveDomainShader,
@@ -146,7 +146,7 @@ namespace Ogre {
     }
 
 
-    void GLSLMonolithicProgramManager::setActiveFragmentShader(GLSLShader* fragmentShader)
+    void GL3PlusGLSLMonolithicProgramManager::setActiveFragmentShader(GL3PlusGLSLShader* fragmentShader)
     {
         if (fragmentShader != mActiveFragmentShader)
         {
@@ -157,7 +157,7 @@ namespace Ogre {
     }
 
 
-    void GLSLMonolithicProgramManager::setActiveVertexShader(GLSLShader* vertexShader)
+    void GL3PlusGLSLMonolithicProgramManager::setActiveVertexShader(GL3PlusGLSLShader* vertexShader)
     {
         if (vertexShader != mActiveVertexShader)
         {
@@ -168,7 +168,7 @@ namespace Ogre {
     }
 
 
-    void GLSLMonolithicProgramManager::setActiveGeometryShader(GLSLShader* geometryShader)
+    void GL3PlusGLSLMonolithicProgramManager::setActiveGeometryShader(GL3PlusGLSLShader* geometryShader)
     {
         if (geometryShader != mActiveGeometryShader)
         {
@@ -179,7 +179,7 @@ namespace Ogre {
     }
 
 
-    void GLSLMonolithicProgramManager::setActiveHullShader(GLSLShader* hullShader)
+    void GL3PlusGLSLMonolithicProgramManager::setActiveHullShader(GL3PlusGLSLShader* hullShader)
     {
         if (hullShader != mActiveHullShader)
         {
@@ -190,7 +190,7 @@ namespace Ogre {
     }
 
 
-    void GLSLMonolithicProgramManager::setActiveDomainShader(GLSLShader* domainShader)
+    void GL3PlusGLSLMonolithicProgramManager::setActiveDomainShader(GL3PlusGLSLShader* domainShader)
     {
         if (domainShader != mActiveDomainShader)
         {
@@ -201,7 +201,7 @@ namespace Ogre {
     }
 
 
-    void GLSLMonolithicProgramManager::setActiveComputeShader(GLSLShader* computeShader)
+    void GL3PlusGLSLMonolithicProgramManager::setActiveComputeShader(GL3PlusGLSLShader* computeShader)
     {
         if (computeShader != mActiveComputeShader)
         {

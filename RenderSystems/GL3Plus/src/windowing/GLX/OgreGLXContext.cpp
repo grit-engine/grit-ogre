@@ -28,18 +28,18 @@
 
 #include "OgreGL3PlusRenderSystem.h"
 #include "OgreRoot.h"
-#include "OgreGLXContext.h"
-#include "OgreGLXUtils.h"
-#include "OgreGLXGLSupport.h"
+#include "OgreGL3PlusGLXContext.h"
+#include "OgreGL3PlusGLXUtils.h"
+#include "OgreGL3PlusGLXGLSupport.h"
 
 namespace Ogre
 {
-    GLXContext::GLXContext(GLXGLSupport* glsupport, ::GLXFBConfig fbconfig, ::GLXDrawable drawable, ::GLXContext context) :
+    GL3PlusGLXContext::GL3PlusGLXContext(GL3PlusGLXGLSupport* glsupport, ::GLXFBConfig fbconfig, ::GLXDrawable drawable, GLXContext context) :
         mDrawable(drawable), mContext(0), mFBConfig(fbconfig), mGLSupport(glsupport), mExternalContext(false)
     {
         GL3PlusRenderSystem *renderSystem = static_cast<GL3PlusRenderSystem*>(Root::getSingleton().getRenderSystem());
-        GLXContext* mainContext = static_cast<GLXContext*>(renderSystem->_getMainContext());
-        ::GLXContext shareContext = 0;
+        GL3PlusGLXContext* mainContext = static_cast<GL3PlusGLXContext*>(renderSystem->_getMainContext());
+        GLXContext shareContext = 0;
 
         if (mainContext)
         {
@@ -58,11 +58,11 @@ namespace Ogre
 
         if (! mContext)
         {
-            OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR, "Unable to create a suitable GLXContext", "GLXContext::GLXContext");
+            OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR, "Unable to create a suitable GL3PlusGLXContext", "GL3PlusGLXContext");
         }
     }
 
-    GLXContext::~GLXContext()
+    GL3PlusGLXContext::~GL3PlusGLXContext()
     {
         GL3PlusRenderSystem *rs = static_cast<GL3PlusRenderSystem*>(Root::getSingleton().getRenderSystem());
 
@@ -72,18 +72,18 @@ namespace Ogre
         rs->_unregisterContext(this);
     }
 
-    void GLXContext::setCurrent()
+    void GL3PlusGLXContext::setCurrent()
     {
         glXMakeCurrent(mGLSupport->getGLDisplay(), mDrawable, mContext);
     }
 
-    void GLXContext::endCurrent()
+    void GL3PlusGLXContext::endCurrent()
     {
         glXMakeCurrent(mGLSupport->getGLDisplay(), None, None);
     }
 
-    GL3PlusContext* GLXContext::clone() const
+    GL3PlusContext* GL3PlusGLXContext::clone() const
     {
-        return new GLXContext(mGLSupport, mFBConfig, mDrawable);
+        return new GL3PlusGLXContext(mGLSupport, mFBConfig, mDrawable);
     }
 }

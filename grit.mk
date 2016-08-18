@@ -188,7 +188,94 @@ OGRESHARED_WEAK_CPP_SRCS= \
 
 OGRE_WEAK_CPP_SRCS= \
 	$(OGRESHARED_WEAK_CPP_SRCS) \
+	PlugIns/CgProgramManager/src/OgreCgFxScriptLoader.cpp \
+	PlugIns/CgProgramManager/src/OgreCgPlugin.cpp \
+	PlugIns/CgProgramManager/src/OgreCgProgram.cpp \
+	PlugIns/CgProgramManager/src/OgreCgProgramFactory.cpp \
+	PlugIns/CgProgramManager/src/OgreCgProgramManagerDll.cpp \
+	PlugIns/OctreeSceneManager/src/OgreOctreeCamera.cpp \
+	PlugIns/OctreeSceneManager/src/OgreOctree.cpp \
+	PlugIns/OctreeSceneManager/src/OgreOctreeNode.cpp \
+	PlugIns/OctreeSceneManager/src/OgreOctreePlugin.cpp \
+	PlugIns/OctreeSceneManager/src/OgreOctreeSceneManager.cpp \
+	PlugIns/OctreeSceneManager/src/OgreOctreeSceneQuery.cpp \
+	RenderSystems/GL3Plus/src/gl3w.c \
+	RenderSystems/GL3Plus/src/GLSL/OgreGLSLExtSupport.cpp \
+	RenderSystems/GL3Plus/src/GLSL/OgreGLSLMonolithicProgram.cpp \
+	RenderSystems/GL3Plus/src/GLSL/OgreGLSLMonolithicProgramManager.cpp \
+	RenderSystems/GL3Plus/src/GLSL/OgreGLSLPreprocessor.cpp \
+	RenderSystems/GL3Plus/src/GLSL/OgreGLSLProgram.cpp \
+	RenderSystems/GL3Plus/src/GLSL/OgreGLSLProgramManager.cpp \
+	RenderSystems/GL3Plus/src/GLSL/OgreGLSLSeparableProgram.cpp \
+	RenderSystems/GL3Plus/src/GLSL/OgreGLSLSeparableProgramManager.cpp \
+	RenderSystems/GL3Plus/src/GLSL/OgreGLSLShader.cpp \
+	RenderSystems/GL3Plus/src/GLSL/OgreGLSLShaderFactory.cpp \
+	RenderSystems/GL3Plus/src/GLSL/OgreGLSLShaderManager.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusContext.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusDefaultHardwareBufferManager.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusDepthBuffer.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusEngineDll.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusFBOMultiRenderTarget.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusFBORenderTexture.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusFrameBufferObject.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusHardwareBufferManager.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusHardwareCounterBuffer.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusHardwareIndexBuffer.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusHardwareOcclusionQuery.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusHardwarePixelBuffer.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusHardwareShaderStorageBuffer.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusHardwareUniformBuffer.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusHardwareVertexBuffer.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusPixelFormat.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusPlugin.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusRenderSystem.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusRenderTexture.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusRenderToVertexBuffer.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusSupport.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusTextureBuffer.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusTexture.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusTextureManager.cpp \
+	RenderSystems/GL3Plus/src/OgreGL3PlusVertexArrayObject.cpp \
+	RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXContext.cpp \
+	RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXGLSupport.cpp \
+	RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXWindow.cpp \
+	RenderSystems/GL/src/atifs/src/ATI_FS_GLGpuProgram.cpp \
+	RenderSystems/GL/src/atifs/src/Compiler2Pass.cpp \
+	RenderSystems/GL/src/atifs/src/ps_1_4.cpp \
 	RenderSystems/GL/src/glew.cpp \
+	RenderSystems/GL/src/GLSL/src/OgreGLSLExtSupport.cpp \
+	RenderSystems/GL/src/GLSL/src/OgreGLSLGpuProgram.cpp \
+	RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgram.cpp \
+	RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgramManager.cpp \
+	RenderSystems/GL/src/GLSL/src/OgreGLSLPreprocessor.cpp \
+	RenderSystems/GL/src/GLSL/src/OgreGLSLProgram.cpp \
+	RenderSystems/GL/src/GLSL/src/OgreGLSLProgramFactory.cpp \
+	RenderSystems/GL/src/GLX/OgreGLXContext.cpp \
+	RenderSystems/GL/src/GLX/OgreGLXGLSupport.cpp \
+	RenderSystems/GL/src/GLX/OgreGLXRenderTexture.cpp \
+	RenderSystems/GL/src/GLX/OgreGLXWindow.cpp \
+	RenderSystems/GL/src/nvparse/avp1.0_impl.cpp \
+	RenderSystems/GL/src/nvparse/nvparse.cpp \
+	RenderSystems/GL/src/nvparse/nvparse_errors.cpp \
+	RenderSystems/GL/src/nvparse/_ps1.0_lexer.cpp \
+	RenderSystems/GL/src/nvparse/_ps1.0_parser.cpp \
+	RenderSystems/GL/src/nvparse/ps1.0_program.cpp \
+	RenderSystems/GL/src/nvparse/rc1.0_combiners.cpp \
+	RenderSystems/GL/src/nvparse/rc1.0_final.cpp \
+	RenderSystems/GL/src/nvparse/rc1.0_general.cpp \
+	RenderSystems/GL/src/nvparse/_rc1.0_lexer.cpp \
+	RenderSystems/GL/src/nvparse/_rc1.0_parser.cpp \
+	RenderSystems/GL/src/nvparse/ts1.0_inst.cpp \
+	RenderSystems/GL/src/nvparse/ts1.0_inst_list.cpp \
+	RenderSystems/GL/src/nvparse/_ts1.0_lexer.cpp \
+	RenderSystems/GL/src/nvparse/_ts1.0_parser.cpp \
+	RenderSystems/GL/src/nvparse/vcp1.0_impl.cpp \
+	RenderSystems/GL/src/nvparse/vp1.0_impl.cpp \
+	RenderSystems/GL/src/nvparse/vs1.0_inst.cpp \
+	RenderSystems/GL/src/nvparse/vs1.0_inst_list.cpp \
+	RenderSystems/GL/src/nvparse/_vs1.0_lexer.cpp \
+	RenderSystems/GL/src/nvparse/_vs1.0_parser.cpp \
+	RenderSystems/GL/src/nvparse/vsp1.0_impl.cpp \
 	RenderSystems/GL/src/OgreGLATIFSInit.cpp \
 	RenderSystems/GL/src/OgreGLContext.cpp \
 	RenderSystems/GL/src/OgreGLDefaultHardwareBufferManager.cpp \
@@ -217,53 +304,6 @@ OGRE_WEAK_CPP_SRCS= \
 	RenderSystems/GL/src/OgreGLUniformCache.cpp \
 	RenderSystems/GL/src/StateCacheManager/OgreGLNullStateCacheManagerImp.cpp \
 	RenderSystems/GL/src/StateCacheManager/OgreGLNullUniformCacheImp.cpp \
-	RenderSystems/GL/src/nvparse/avp1.0_impl.cpp \
-	RenderSystems/GL/src/nvparse/nvparse.cpp \
-	RenderSystems/GL/src/nvparse/nvparse_errors.cpp \
-	RenderSystems/GL/src/nvparse/_ps1.0_lexer.cpp \
-	RenderSystems/GL/src/nvparse/_ps1.0_parser.cpp \
-	RenderSystems/GL/src/nvparse/ps1.0_program.cpp \
-	RenderSystems/GL/src/nvparse/rc1.0_combiners.cpp \
-	RenderSystems/GL/src/nvparse/rc1.0_final.cpp \
-	RenderSystems/GL/src/nvparse/rc1.0_general.cpp \
-	RenderSystems/GL/src/nvparse/_rc1.0_lexer.cpp \
-	RenderSystems/GL/src/nvparse/_rc1.0_parser.cpp \
-	RenderSystems/GL/src/nvparse/ts1.0_inst.cpp \
-	RenderSystems/GL/src/nvparse/ts1.0_inst_list.cpp \
-	RenderSystems/GL/src/nvparse/_ts1.0_lexer.cpp \
-	RenderSystems/GL/src/nvparse/_ts1.0_parser.cpp \
-	RenderSystems/GL/src/nvparse/vcp1.0_impl.cpp \
-	RenderSystems/GL/src/nvparse/vp1.0_impl.cpp \
-	RenderSystems/GL/src/nvparse/vs1.0_inst.cpp \
-	RenderSystems/GL/src/nvparse/vs1.0_inst_list.cpp \
-	RenderSystems/GL/src/nvparse/_vs1.0_lexer.cpp \
-	RenderSystems/GL/src/nvparse/_vs1.0_parser.cpp \
-	RenderSystems/GL/src/nvparse/vsp1.0_impl.cpp \
-	RenderSystems/GL/src/GLSL/src/OgreGLSLExtSupport.cpp \
-	RenderSystems/GL/src/GLSL/src/OgreGLSLGpuProgram.cpp \
-	RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgram.cpp \
-	RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgramManager.cpp \
-	RenderSystems/GL/src/GLSL/src/OgreGLSLPreprocessor.cpp \
-	RenderSystems/GL/src/GLSL/src/OgreGLSLProgram.cpp \
-	RenderSystems/GL/src/GLSL/src/OgreGLSLProgramFactory.cpp \
-	RenderSystems/GL/src/atifs/src/ATI_FS_GLGpuProgram.cpp \
-	RenderSystems/GL/src/atifs/src/Compiler2Pass.cpp \
-	RenderSystems/GL/src/atifs/src/ps_1_4.cpp \
-	RenderSystems/GL/src/GLX/OgreGLXContext.cpp \
-	RenderSystems/GL/src/GLX/OgreGLXGLSupport.cpp \
-	RenderSystems/GL/src/GLX/OgreGLXRenderTexture.cpp \
-	RenderSystems/GL/src/GLX/OgreGLXWindow.cpp \
-	PlugIns/CgProgramManager/src/OgreCgPlugin.cpp \
-	PlugIns/CgProgramManager/src/OgreCgProgramManagerDll.cpp \
-	PlugIns/CgProgramManager/src/OgreCgProgram.cpp \
-	PlugIns/CgProgramManager/src/OgreCgProgramFactory.cpp \
-	PlugIns/CgProgramManager/src/OgreCgFxScriptLoader.cpp \
-	PlugIns/OctreeSceneManager/src/OgreOctreeCamera.cpp \
-	PlugIns/OctreeSceneManager/src/OgreOctree.cpp \
-	PlugIns/OctreeSceneManager/src/OgreOctreeNode.cpp \
-	PlugIns/OctreeSceneManager/src/OgreOctreePlugin.cpp \
-	PlugIns/OctreeSceneManager/src/OgreOctreeSceneManager.cpp \
-	PlugIns/OctreeSceneManager/src/OgreOctreeSceneQuery.cpp \
 
 OGRE_INCLUDE_DIRS= \
 	. \
@@ -277,12 +317,10 @@ OGRE_INCLUDE_DIRS= \
 	RenderSystems/GL/src/GLSL/include \
 	RenderSystems/GL/include \
 	RenderSystems/GL/include/GLX \
-	RenderSystems/GL3Plus/include/GLX \
-	RenderSystems/GL3Plus/include/nvparse \
-	RenderSystems/GL3Plus/include/atifs \
 	RenderSystems/GL3Plus/include/GLSL \
+	RenderSystems/GL3Plus/include/windowing/GLX \
+	RenderSystems/GL3Plus/src/windowing/GLX \
 	RenderSystems/GL3Plus/include \
-	RenderSystems/GL3Plus/include/GLX \
 	Components/MeshLodGenerator/include \
 	PlugIns/CgProgramManager/include \
 	PlugIns/OctreeSceneManager/include \

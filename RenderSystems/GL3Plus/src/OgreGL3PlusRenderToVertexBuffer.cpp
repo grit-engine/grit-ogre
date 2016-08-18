@@ -121,8 +121,8 @@ namespace Ogre {
         if (Root::getSingleton().getRenderSystem()->getCapabilities()->hasCapability(RSC_SEPARATE_SHADER_OBJECTS))
         {
             GLSLSeparableProgram* separableProgram =
-                GLSLSeparableProgramManager::getSingleton().getCurrentSeparableProgram();
-            GLSLShader* glslGpuProgram = 0;
+                GL3PlusGLSLSeparableProgramManager::getSingleton().getCurrentSeparableProgram();
+            GL3PlusGLSLShader* glslGpuProgram = 0;
             if ((glslGpuProgram = separableProgram->getGeometryShader()))
                 programId = glslGpuProgram->getGLProgramHandle();
             //TODO include tessellation stages
@@ -131,7 +131,7 @@ namespace Ogre {
         }
         else
         {
-            GLSLMonolithicProgram* monolithicProgram = GLSLMonolithicProgramManager::getSingleton().getActiveMonolithicProgram();
+            GL3PlusGLSLMonolithicProgram* monolithicProgram = GL3PlusGLSLMonolithicProgramManager::getSingleton().getActiveMonolithicProgram();
             programId = monolithicProgram->getGLProgramHandle();
         }
 
@@ -174,7 +174,7 @@ namespace Ogre {
         if (Root::getSingleton().getRenderSystem()->getCapabilities()->hasCapability(RSC_SEPARATE_SHADER_OBJECTS))
         {
             GLSLSeparableProgram* separableProgram =
-                GLSLSeparableProgramManager::getSingleton().getCurrentSeparableProgram();
+                GL3PlusGLSLSeparableProgramManager::getSingleton().getCurrentSeparableProgram();
             separableProgram->activate();
         }
         else
@@ -286,13 +286,13 @@ namespace Ogre {
         if (Root::getSingleton().getRenderSystem()->getCapabilities()->hasCapability(RSC_SEPARATE_SHADER_OBJECTS))
         {
             GLSLSeparableProgram* separableProgram =
-                GLSLSeparableProgramManager::getSingleton().getCurrentSeparableProgram();
+                GL3PlusGLSLSeparableProgramManager::getSingleton().getCurrentSeparableProgram();
             separableProgram->activate();
             separableProgram->getVertexArrayObject()->bind();
         }
         else
         {
-            GLSLMonolithicProgram* monolithicProgram = GLSLMonolithicProgramManager::getSingleton().getActiveMonolithicProgram();
+            GL3PlusGLSLMonolithicProgram* monolithicProgram = GL3PlusGLSLMonolithicProgramManager::getSingleton().getActiveMonolithicProgram();
             monolithicProgram->getVertexArrayObject()->bind();
         }
 

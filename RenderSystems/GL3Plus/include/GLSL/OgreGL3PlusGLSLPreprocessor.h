@@ -26,8 +26,8 @@
    -----------------------------------------------------------------------------
 */
 
-#ifndef __OGRE_CPREPROCESSOR_H__
-#define __OGRE_CPREPROCESSOR_H__
+#ifndef __OGRE_GL3PLUS_CPREPROCESSOR_H__
+#define __OGRE_GL3PLUS_CPREPROCESSOR_H__
 
 #include <string.h>
 #include <stdlib.h>
@@ -521,4 +521,4 @@ namespace Ogre {
 
 } // namespace Ogre
 
-#endif // __OGRE_CPREPROCESSOR_H__
+#endif // __OGRE_GL3PLUS_CPREPROCESSOR_H__

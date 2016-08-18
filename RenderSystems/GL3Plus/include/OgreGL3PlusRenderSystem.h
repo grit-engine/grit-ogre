@@ -40,7 +40,7 @@ namespace Ogre {
     class GL3PlusSupport;
     class GL3PlusRTTManager;
     class GLSLShaderManager;
-    class GLSLShaderFactory;
+    class GL3PlusGLSLShaderFactory;
     class HardwareBufferManager;
 
     /**
@@ -113,7 +113,7 @@ namespace Ogre {
         GL3PlusContextList mBackgroundContextList;
 
         GLSLShaderManager *mShaderManager;
-        GLSLShaderFactory* mGLSLShaderFactory;
+        GL3PlusGLSLShaderFactory* mGLSLShaderFactory;
         HardwareBufferManager* mHardwareBufferManager;
 
         /** Manager object for creating render textures.
@@ -156,12 +156,12 @@ namespace Ogre {
 
         GLint getCombinedMinMipFilter(void) const;
 
-        GLSLShader* mCurrentVertexShader;
-        GLSLShader* mCurrentFragmentShader;
-        GLSLShader* mCurrentGeometryShader;
-        GLSLShader* mCurrentHullShader;
-        GLSLShader* mCurrentDomainShader;
-        GLSLShader* mCurrentComputeShader;
+        GL3PlusGLSLShader* mCurrentVertexShader;
+        GL3PlusGLSLShader* mCurrentFragmentShader;
+        GL3PlusGLSLShader* mCurrentGeometryShader;
+        GL3PlusGLSLShader* mCurrentHullShader;
+        GL3PlusGLSLShader* mCurrentDomainShader;
+        GL3PlusGLSLShader* mCurrentComputeShader;
 
         GLint getTextureAddressingMode(TextureUnitState::TextureAddressingMode tam) const;
         GLenum getBlendMode(SceneBlendFactor ogreBlend) const;

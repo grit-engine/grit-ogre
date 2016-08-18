@@ -31,8 +31,8 @@
 #include "OgreGL3PlusPrerequisites.h"
 #include "OgreSingleton.h"
 #include "OgreGLSLShader.h"
-#include "OgreGLSLProgram.h"
-#include "OgreGLSLExtSupport.h"
+#include "OgreGL3PlusGLSLProgram.h"
+#include "OgreGL3PlusGLSLExtSupport.h"
 
 namespace Ogre {
 
@@ -49,16 +49,16 @@ namespace Ogre {
         retrieval the next time the program object is required.
     */
 
-    class _OgreGL3PlusExport GLSLProgramManager
+    class _OgreGL3PlusExport GL3PlusGLSLProgramManager
     {
     protected:
         /// Active shader objects defining the active program object.
-        GLSLShader* mActiveVertexShader;
-        GLSLShader* mActiveHullShader;
-        GLSLShader* mActiveDomainShader;
-        GLSLShader* mActiveGeometryShader;
-        GLSLShader* mActiveFragmentShader;
-        GLSLShader* mActiveComputeShader;
+        GL3PlusGLSLShader* mActiveVertexShader;
+        GL3PlusGLSLShader* mActiveHullShader;
+        GL3PlusGLSLShader* mActiveDomainShader;
+        GL3PlusGLSLShader* mActiveGeometryShader;
+        GL3PlusGLSLShader* mActiveFragmentShader;
+        GL3PlusGLSLShader* mActiveComputeShader;
 
         const GL3PlusSupport& mGLSupport;
 
@@ -103,7 +103,7 @@ namespace Ogre {
 
     public:
 
-        GLSLProgramManager(const GL3PlusSupport& support);
+        GL3PlusGLSLProgramManager(const GL3PlusSupport& support);
 
         /** Populate a list of uniforms based on an OpenGL program object.
             @param programObject Handle to the program object to query.

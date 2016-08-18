@@ -28,8 +28,8 @@
 
 
 
-#ifndef __GLSLExtSupport_H__
-#define __GLSLExtSupport_H__
+#ifndef __GL3PlusGLSLExtSupport_H__
+#define __GL3PlusGLSLExtSupport_H__
 
 #include "OgreGL3PlusPrerequisites.h"
 
@@ -40,11 +40,11 @@ namespace Ogre
 {
     //TODO Get rid of any unneeded forward declarations.
     // forward declarations
-    class GLSLShader;
-    class GLSLMonolithicProgram;
-    class GLSLMonolithicProgramManager;
-    class GLSLSeparableProgramManager;
-    class GLSLShaderFactory;
+    class GL3PlusGLSLShader;
+    class GL3PlusGLSLMonolithicProgram;
+    class GL3PlusGLSLMonolithicProgramManager;
+    class GL3PlusGLSLSeparableProgramManager;
+    class GL3PlusGLSLShaderFactory;
 
     /** If there is a message in GL info log then post it in the Ogre Log
         @param msg The info log message string is appended to this string
@@ -54,4 +54,4 @@ namespace Ogre
 
 } // namespace Ogre
 
-#endif // __GLSLExtSupport_H__
+#endif // __GL3PlusGLSLExtSupport_H__

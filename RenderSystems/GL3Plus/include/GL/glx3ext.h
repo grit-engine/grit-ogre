@@ -1,5 +1,5 @@
-#ifndef __glxext_h_
-#define __glxext_h_ 1
+#ifndef __glx3ext_h_
+#define __glx3ext_h_ 1
 
 #ifdef __cplusplus
 extern "C" {
@@ -51,7 +51,7 @@ extern "C" {
 #define GLX_VERSION_1_3 1
 typedef XID GLXContextID;
 typedef struct __GLXFBConfigRec *GLXFBConfig;
-typedef XID GLXWindow;
+typedef XID GL3PlusGLXWindow;
 typedef XID GLXPbuffer;
 #define GLX_WINDOW_BIT                    0x00000001
 #define GLX_PIXMAP_BIT                    0x00000002
@@ -113,8 +113,8 @@ typedef GLXFBConfig *( *PFNGLXGETFBCONFIGSPROC) (Display *dpy, int screen, int *
 typedef GLXFBConfig *( *PFNGLXCHOOSEFBCONFIGPROC) (Display *dpy, int screen, const int *attrib_list, int *nelements);
 typedef int ( *PFNGLXGETFBCONFIGATTRIBPROC) (Display *dpy, GLXFBConfig config, int attribute, int *value);
 typedef XVisualInfo *( *PFNGLXGETVISUALFROMFBCONFIGPROC) (Display *dpy, GLXFBConfig config);
-typedef GLXWindow ( *PFNGLXCREATEWINDOWPROC) (Display *dpy, GLXFBConfig config, Window win, const int *attrib_list);
-typedef void ( *PFNGLXDESTROYWINDOWPROC) (Display *dpy, GLXWindow win);
+typedef GL3PlusGLXWindow ( *PFNGLXCREATEWINDOWPROC) (Display *dpy, GLXFBConfig config, Window win, const int *attrib_list);
+typedef void ( *PFNGLXDESTROYWINDOWPROC) (Display *dpy, GL3PlusGLXWindow win);
 typedef GLXPixmap ( *PFNGLXCREATEPIXMAPPROC) (Display *dpy, GLXFBConfig config, Pixmap pixmap, const int *attrib_list);
 typedef void ( *PFNGLXDESTROYPIXMAPPROC) (Display *dpy, GLXPixmap pixmap);
 typedef GLXPbuffer ( *PFNGLXCREATEPBUFFERPROC) (Display *dpy, GLXFBConfig config, const int *attrib_list);
@@ -131,8 +131,8 @@ GLXFBConfig *glXGetFBConfigs (Display *dpy, int screen, int *nelements);
 GLXFBConfig *glXChooseFBConfig (Display *dpy, int screen, const int *attrib_list, int *nelements);
 int glXGetFBConfigAttrib (Display *dpy, GLXFBConfig config, int attribute, int *value);
 XVisualInfo *glXGetVisualFromFBConfig (Display *dpy, GLXFBConfig config);
-GLXWindow glXCreateWindow (Display *dpy, GLXFBConfig config, Window win, const int *attrib_list);
-void glXDestroyWindow (Display *dpy, GLXWindow win);
+GL3PlusGLXWindow glXCreateWindow (Display *dpy, GLXFBConfig config, Window win, const int *attrib_list);
+void glXDestroyWindow (Display *dpy, GL3PlusGLXWindow win);
 GLXPixmap glXCreatePixmap (Display *dpy, GLXFBConfig config, Pixmap pixmap, const int *attrib_list);
 void glXDestroyPixmap (Display *dpy, GLXPixmap pixmap);
 GLXPbuffer glXCreatePbuffer (Display *dpy, GLXFBConfig config, const int *attrib_list);

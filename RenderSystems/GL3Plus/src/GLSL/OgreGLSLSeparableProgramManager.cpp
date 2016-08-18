@@ -32,26 +32,26 @@
 
 namespace Ogre
 {
-    template<> GLSLSeparableProgramManager* Singleton<GLSLSeparableProgramManager>::msSingleton = 0;
+    template<> GL3PlusGLSLSeparableProgramManager* Singleton<GL3PlusGLSLSeparableProgramManager>::msSingleton = 0;
 
 
-    GLSLSeparableProgramManager* GLSLSeparableProgramManager::getSingletonPtr(void)
+    GL3PlusGLSLSeparableProgramManager* GL3PlusGLSLSeparableProgramManager::getSingletonPtr(void)
     {
         return msSingleton;
     }
 
 
-    GLSLSeparableProgramManager& GLSLSeparableProgramManager::getSingleton(void)
+    GL3PlusGLSLSeparableProgramManager& GL3PlusGLSLSeparableProgramManager::getSingleton(void)
     {
         assert( msSingleton );  return ( *msSingleton );
     }
 
 
-    GLSLSeparableProgramManager::GLSLSeparableProgramManager(const GL3PlusSupport& support) :
-        GLSLProgramManager(support), mActiveSeparableProgram(NULL) { }
+    GL3PlusGLSLSeparableProgramManager::GL3PlusGLSLSeparableProgramManager(const GL3PlusSupport& support) :
+        GL3PlusGLSLProgramManager(support), mActiveSeparableProgram(NULL) { }
 
 
-    GLSLSeparableProgramManager::~GLSLSeparableProgramManager(void)
+    GL3PlusGLSLSeparableProgramManager::~GL3PlusGLSLSeparableProgramManager(void)
     {
         // Iterate through map container and delete program pipelines.
         for (SeparableProgramIterator currentProgram = mSeparablePrograms.begin();
@@ -62,7 +62,7 @@ namespace Ogre
     }
 
 
-    void GLSLSeparableProgramManager::setActiveFragmentShader(GLSLShader* fragmentShader)
+    void GL3PlusGLSLSeparableProgramManager::setActiveFragmentShader(GL3PlusGLSLShader* fragmentShader)
     {
         if (fragmentShader != mActiveFragmentShader)
         {
@@ -73,7 +73,7 @@ namespace Ogre
     }
 
 
-    void GLSLSeparableProgramManager::setActiveVertexShader(GLSLShader* vertexShader)
+    void GL3PlusGLSLSeparableProgramManager::setActiveVertexShader(GL3PlusGLSLShader* vertexShader)
     {
         if (vertexShader != mActiveVertexShader)
         {
@@ -84,7 +84,7 @@ namespace Ogre
     }
 
 
-    void GLSLSeparableProgramManager::setActiveGeometryShader(GLSLShader* geometryShader)
+    void GL3PlusGLSLSeparableProgramManager::setActiveGeometryShader(GL3PlusGLSLShader* geometryShader)
     {
         if (geometryShader != mActiveGeometryShader)
         {
@@ -95,7 +95,7 @@ namespace Ogre
     }
 
 
-    void GLSLSeparableProgramManager::setActiveTessDomainShader(GLSLShader* domainShader)
+    void GL3PlusGLSLSeparableProgramManager::setActiveTessDomainShader(GL3PlusGLSLShader* domainShader)
     {
         if (domainShader != mActiveDomainShader)
         {
@@ -106,7 +106,7 @@ namespace Ogre
     }
 
 
-    void GLSLSeparableProgramManager::setActiveTessHullShader(GLSLShader* hullShader)
+    void GL3PlusGLSLSeparableProgramManager::setActiveTessHullShader(GL3PlusGLSLShader* hullShader)
     {
         if (hullShader != mActiveHullShader)
         {
@@ -117,7 +117,7 @@ namespace Ogre
     }
 
 
-    void GLSLSeparableProgramManager::setActiveComputeShader(GLSLShader* computeShader)
+    void GL3PlusGLSLSeparableProgramManager::setActiveComputeShader(GL3PlusGLSLShader* computeShader)
     {
         if (computeShader != mActiveComputeShader)
         {
@@ -128,7 +128,7 @@ namespace Ogre
     }
 
 
-    GLSLSeparableProgram* GLSLSeparableProgramManager::getCurrentSeparableProgram(void)
+    GLSLSeparableProgram* GL3PlusGLSLSeparableProgramManager::getCurrentSeparableProgram(void)
     {
         // If there is an active link program then return it.
         if (mActiveSeparableProgram)

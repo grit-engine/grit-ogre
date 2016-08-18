@@ -50,7 +50,7 @@ namespace Ogre
         unique key in a hash map for quick retrieval the next time the
         pipeline object is required.
     */
-    class _OgreGL3PlusExport GLSLSeparableProgramManager : public GLSLProgramManager, public Singleton<GLSLSeparableProgramManager>
+    class _OgreGL3PlusExport GL3PlusGLSLSeparableProgramManager : public GL3PlusGLSLProgramManager, public Singleton<GL3PlusGLSLSeparableProgramManager>
     {
     private:
 
@@ -65,8 +65,8 @@ namespace Ogre
 
     public:
 
-        GLSLSeparableProgramManager(const GL3PlusSupport& support);
-        ~GLSLSeparableProgramManager(void);
+        GL3PlusGLSLSeparableProgramManager(const GL3PlusSupport& support);
+        ~GL3PlusGLSLSeparableProgramManager(void);
 
         /** Get the program pipeline that combines the current program
             objects.  If the program pipeline object was not already
@@ -77,18 +77,18 @@ namespace Ogre
 
         /** Set the active link programs for the next rendering state.
             The active program pipeline object will be cleared.
-            Normally called from the GLSLShader::bindProgram and
+            Normally called from the GL3PlusGLSLShader::bindProgram and
             unbindProgram methods.
         */
-        void setActiveVertexShader(GLSLShader* vertexShader);
-        void setActiveTessDomainShader(GLSLShader* domainShader);
-        void setActiveTessHullShader(GLSLShader* hullShader);
-        void setActiveGeometryShader(GLSLShader* geometryShader);
-        void setActiveFragmentShader(GLSLShader* fragmentShader);
-        void setActiveComputeShader(GLSLShader* computShader);
+        void setActiveVertexShader(GL3PlusGLSLShader* vertexShader);
+        void setActiveTessDomainShader(GL3PlusGLSLShader* domainShader);
+        void setActiveTessHullShader(GL3PlusGLSLShader* hullShader);
+        void setActiveGeometryShader(GL3PlusGLSLShader* geometryShader);
+        void setActiveFragmentShader(GL3PlusGLSLShader* fragmentShader);
+        void setActiveComputeShader(GL3PlusGLSLShader* computShader);
 
-        static GLSLSeparableProgramManager& getSingleton(void);
-        static GLSLSeparableProgramManager* getSingletonPtr(void);
+        static GL3PlusGLSLSeparableProgramManager& getSingleton(void);
+        static GL3PlusGLSLSeparableProgramManager* getSingletonPtr(void);
     };
 }
 

@@ -26,7 +26,7 @@
   -----------------------------------------------------------------------------
 */
 
-#include "OgreGLSLProgram.h"
+#include "OgreGL3PlusGLSLProgram.h"
 #include "OgreGLSLShader.h"
 #include "OgreGpuProgramManager.h"
 #include "OgreGLSLShader.h"
@@ -34,12 +34,12 @@
 
 namespace Ogre {
 
-    GLSLProgram::GLSLProgram(GLSLShader* vertexShader,
-                             GLSLShader* hullShader,
-                             GLSLShader* domainShader,
-                             GLSLShader* geometryShader,
-                             GLSLShader* fragmentShader,
-                             GLSLShader* computeShader)
+    GLSLProgram::GLSLProgram(GL3PlusGLSLShader* vertexShader,
+                             GL3PlusGLSLShader* hullShader,
+                             GL3PlusGLSLShader* domainShader,
+                             GL3PlusGLSLShader* geometryShader,
+                             GL3PlusGLSLShader* fragmentShader,
+                             GL3PlusGLSLShader* computeShader)
         : mVertexShader(vertexShader)
         , mHullShader(hullShader)
         , mDomainShader(domainShader)

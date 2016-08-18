@@ -32,11 +32,11 @@
 #include "OgreGpuProgram.h"
 #include "OgreHardwareVertexBuffer.h"
 #include "OgreGL3PlusHardwareUniformBuffer.h"
-#include "OgreGLSLProgram.h"
+#include "OgreGL3PlusGLSLProgram.h"
 
 namespace Ogre {
 
-    class GLSLShader;
+    class GL3PlusGLSLShader;
 
     /** Model of OpenGL program object created using the glLinkProgram
         method of linking.
@@ -46,7 +46,7 @@ namespace Ogre {
         the program object like GLSLSeparableProgram can. Hence the name
         'monolithic'.
     */
-    class _OgreGL3PlusExport GLSLMonolithicProgram : public GLSLProgram
+    class _OgreGL3PlusExport GL3PlusGLSLMonolithicProgram : public GLSLProgram
     {
     protected:
         /// Compiles and links the vertex and fragment programs
@@ -57,14 +57,14 @@ namespace Ogre {
         void buildGLUniformReferences(void);
 
     public:
-        /// Constructor should only be used by GLSLMonolithicProgramManager
-        GLSLMonolithicProgram(GLSLShader* vertexProgram,
-                              GLSLShader* hullProgram,
-                              GLSLShader* domainProgram,
-                              GLSLShader* geometryProgram,
-                              GLSLShader* fragmentProgram,
-                              GLSLShader* computeProgram);
-        ~GLSLMonolithicProgram(void);
+        /// Constructor should only be used by GL3PlusGLSLMonolithicProgramManager
+        GL3PlusGLSLMonolithicProgram(GL3PlusGLSLShader* vertexProgram,
+                              GL3PlusGLSLShader* hullProgram,
+                              GL3PlusGLSLShader* domainProgram,
+                              GL3PlusGLSLShader* geometryProgram,
+                              GL3PlusGLSLShader* fragmentProgram,
+                              GL3PlusGLSLShader* computeProgram);
+        ~GL3PlusGLSLMonolithicProgram(void);
 
         /** Makes a program object active by making sure it is linked
             and then putting it in use.
@@ -73,19 +73,19 @@ namespace Ogre {
 
         /** Updates program object uniforms using data from
             GpuProgramParameters.  normally called by
-            GLSLShader::bindParameters() just before rendering
+            GL3PlusGLSLShader::bindParameters() just before rendering
             occurs.
         */
         void updateUniforms(GpuProgramParametersSharedPtr params, uint16 mask, GpuProgramType fromProgType);
         /** Updates program object uniform blocks using data from
             GpuProgramParameters.  normally called by
-            GLSLShader::bindParameters() just before rendering
+            GL3PlusGLSLShader::bindParameters() just before rendering
             occurs.
         */
         void updateUniformBlocks(GpuProgramParametersSharedPtr params, uint16 mask, GpuProgramType fromProgType);
         /** Updates program object uniforms using data from pass
             iteration GpuProgramParameters.  normally called by
-            GLSLShader::bindMultiPassParameters() just before multi
+            GL3PlusGLSLShader::bindMultiPassParameters() just before multi
             pass rendering occurs.
         */
         void updatePassIterationUniforms(GpuProgramParametersSharedPtr params);
