@@ -214,7 +214,6 @@ OGRE_WEAK_CPP_SRCS= \
 	RenderSystems/GL3Plus/src/OgreGL3PlusContext.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusDefaultHardwareBufferManager.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusDepthBuffer.cpp \
-	RenderSystems/GL3Plus/src/OgreGL3PlusEngineDll.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusFBOMultiRenderTarget.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusFBORenderTexture.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusFrameBufferObject.cpp \
