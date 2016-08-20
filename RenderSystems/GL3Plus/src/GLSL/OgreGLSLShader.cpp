@@ -284,8 +284,8 @@ namespace Ogre {
         }
 
         // Log a message that the shader compiled successfully.
-        if (mCompiled && checkErrors)
-            logObjectInfo("GLSL compiled: " + mName, mGLShaderHandle);
+        // if (mCompiled && checkErrors)
+        //     logObjectInfo("GLSL compiled: " + mName, mGLShaderHandle);
 
         if (!mCompiled)
         {

@@ -126,7 +126,7 @@ namespace Ogre
 
             // Validate pipeline
             OGRE_CHECK_GL_ERROR(glValidateProgramPipeline(mGLProgramPipelineHandle));
-            logObjectInfo( getCombinedName() + String("GLSL program pipeline validation result: "), mGLProgramPipelineHandle );
+            //logObjectInfo( getCombinedName() + String("GLSL program pipeline validation result: "), mGLProgramPipelineHandle );
 
             //            if (getGLSupport()->checkExtension("GL_KHR_debug") || gl3wIsSupported(4, 3))
             //                glObjectLabel(GL_PROGRAM_PIPELINE, mGLProgramPipelineHandle, 0,
@@ -201,7 +201,7 @@ namespace Ogre
 
                 mTriedToLinkAndFailed = !linkStatus;
 
-                logObjectInfo( getCombinedName() + String("GLSL program result : "), programHandle );
+                // logObjectInfo( getCombinedName() + String("GLSL program result : "), programHandle );
 
                 if (program->getType() == GPT_VERTEX_PROGRAM)
                     setSkeletalAnimationIncluded(program->isSkeletalAnimationIncluded());
