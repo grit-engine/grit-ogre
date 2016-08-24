@@ -304,7 +304,7 @@ namespace Ogre {
                     NULL));
                 break;
             }
-            if (mUsage & TU_AUTOMIPMAP && (mTarget == GL_TEXTURE_2D_ARRAY || mTarget == GL_TEXTURE_3D))
+            if (mUsage & TU_AUTOMIPMAP)
             {
                 OGRE_CHECK_GL_ERROR(glGenerateMipmap(mTarget));
             }
