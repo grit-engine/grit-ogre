@@ -274,6 +274,9 @@ namespace Ogre {
 
                 String attrName = parts[2];
 
+                // Avoid getAttributeSemanticEnum returning 0 and causing an array overrun.
+                if (parts[0] == "out") break;
+
                 // Special case for attribute named position.
                 if (attrName == "position")
                     semantic = getAttributeSemanticEnum("vertex");
