@@ -480,7 +480,21 @@ namespace Ogre {
         }
         if (mOwnsGLContext)
         {
-            mGlrc = wglCreateContext(mHDC);
+			int major = 3, minor = 3;
+			int attribList[] =
+			{
+				WGL_CONTEXT_MAJOR_VERSION_ARB, major,
+				WGL_CONTEXT_MINOR_VERSION_ARB, minor,
+				WGL_CONTEXT_FLAGS_ARB, WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB
+#if OGRE_DEBUG_MODE
+				| WGL_CONTEXT_DEBUG_BIT_ARB
+#endif
+				, WGL_CONTEXT_PROFILE_MASK_ARB, WGL_CONTEXT_CORE_PROFILE_BIT_ARB,
+				0
+			};
+
+			mGlrc = wglCreateContextAttribsARB(mHDC, old_context, attribList);
+
             if (!mGlrc)
                 OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR, 
                 "wglCreateContext failed: " + translateWGLError(), "Win32Window::create");
