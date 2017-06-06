@@ -89,6 +89,7 @@ OGRESHARED_WEAK_CPP_SRCS= \
 	OgreMain/src/OgreMeshSerializerImpl.cpp \
 	OgreMain/src/OgreMovableObject.cpp \
 	OgreMain/src/OgreMovablePlane.cpp \
+	OgreMain/src/OgreMurmurHash3.cpp \
 	OgreMain/src/OgreNode.cpp \
 	OgreMain/src/OgreNumerics.cpp \
 	OgreMain/src/OgreOptimisedUtil.cpp \
@@ -203,7 +204,6 @@ OGRE_WEAK_CPP_SRCS= \
 	RenderSystems/GL3Plus/src/GLSL/OgreGLSLExtSupport.cpp \
 	RenderSystems/GL3Plus/src/GLSL/OgreGLSLMonolithicProgram.cpp \
 	RenderSystems/GL3Plus/src/GLSL/OgreGLSLMonolithicProgramManager.cpp \
-	RenderSystems/GL3Plus/src/GLSL/OgreGLSLPreprocessor.cpp \
 	RenderSystems/GL3Plus/src/GLSL/OgreGLSLProgram.cpp \
 	RenderSystems/GL3Plus/src/GLSL/OgreGLSLProgramManager.cpp \
 	RenderSystems/GL3Plus/src/GLSL/OgreGLSLSeparableProgram.cpp \
@@ -211,7 +211,6 @@ OGRE_WEAK_CPP_SRCS= \
 	RenderSystems/GL3Plus/src/GLSL/OgreGLSLShader.cpp \
 	RenderSystems/GL3Plus/src/GLSL/OgreGLSLShaderFactory.cpp \
 	RenderSystems/GL3Plus/src/GLSL/OgreGLSLShaderManager.cpp \
-	RenderSystems/GL3Plus/src/OgreGL3PlusContext.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusDefaultHardwareBufferManager.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusDepthBuffer.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusFBOMultiRenderTarget.cpp \
@@ -228,16 +227,23 @@ OGRE_WEAK_CPP_SRCS= \
 	RenderSystems/GL3Plus/src/OgreGL3PlusPixelFormat.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusPlugin.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusRenderSystem.cpp \
-	RenderSystems/GL3Plus/src/OgreGL3PlusRenderTexture.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusRenderToVertexBuffer.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusSupport.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusTextureBuffer.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusTexture.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusTextureManager.cpp \
 	RenderSystems/GL3Plus/src/OgreGL3PlusVertexArrayObject.cpp \
-	RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXContext.cpp \
-	RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXGLSupport.cpp \
-	RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXWindow.cpp \
+	RenderSystems/GLSupport/src/OgreGLTextureCommon.cpp \
+	RenderSystems/GLSupport/src/OgreGLRenderSystemCommon.cpp \
+	RenderSystems/GLSupport/src/GLSL/OgreGLSLProgramCommon.cpp \
+	RenderSystems/GLSupport/src/GLSL/OgreGLSLPreprocessor.cpp \
+	RenderSystems/GLSupport/src/GLSL/OgreGLSLShaderCommon.cpp \
+	RenderSystems/GLSupport/src/OgreGLRenderTexture.cpp \
+	RenderSystems/GLSupport/src/OgreGLHardwarePixelBufferCommon.cpp \
+	RenderSystems/GLSupport/src/GLX/OgreGLXRenderTexture.cpp \
+	RenderSystems/GLSupport/src/GLX/OgreGLXContext.cpp \
+	RenderSystems/GLSupport/src/GLX/OgreGLXGLSupport.cpp \
+	RenderSystems/GLSupport/src/GLX/OgreGLXWindow.cpp \
 	PlugIns/CgProgramManager/src/OgreCgPlugin.cpp \
 	PlugIns/CgProgramManager/src/OgreCgProgramManagerDll.cpp \
 	PlugIns/CgProgramManager/src/OgreCgProgram.cpp \
@@ -259,6 +265,9 @@ OGRE_INCLUDE_DIRS= \
 	RenderSystems/GL3Plus/include/windowing/GLX \
 	RenderSystems/GL3Plus/include \
 	RenderSystems/GL3Plus/src/windowing/GLX \
+	RenderSystems/GLSupport/include/GLSL \
+	RenderSystems/GLSupport/include/GLX \
+	RenderSystems/GLSupport/include \
 	Components/MeshLodGenerator/include \
 	PlugIns/CgProgramManager/include \
 	PlugIns/OctreeSceneManager/include \

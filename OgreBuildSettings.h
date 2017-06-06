@@ -2,29 +2,28 @@
 
 
 #define OGRE_MEMORY_ALLOCATOR 1
-
 #define OGRE_CONFIG_LITTLE_ENDIAN
-
 #define OGRE_DOUBLE_PRECISION 0
-
 #define OGRE_NO_DEVIL 1
-
 #define OGRE_NO_FREEIMAGE 0
-
 #define OGRE_THREAD_PROVIDER 4
-
 #define OGRE_THREAD_SUPPORT 2
-
 #ifdef WIN32
     #define OGRE_GUI_WIN32
 #else
     #define OGRE_GUI_GLX
 #endif
-
 #define OGRE_NO_ZIP_ARCHIVE 1
-
 #define OGRE_NO_GL_STATE_CACHE_SUPPORT 1
-
 #define OGRE_NODE_INHERIT_TRANSFORM  0
-
 #define OGRE_NO_QUAD_BUFFER_STEREO 1
+#define OGRE_NO_STBI_CODEC 1
+#define OGRE_NO_ETC_CODEC 1
+
+#define OGRE_DEPRECATED
+#define _OgreExport
+#define _OgrePrivate
+#define OGRE_RESOURCEMANAGER_STRICT 1
+
+#define _OgreOctreePluginExport
+#define _OgreGLExport
