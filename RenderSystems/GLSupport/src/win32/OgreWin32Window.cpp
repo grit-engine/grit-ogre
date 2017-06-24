@@ -492,8 +492,9 @@ namespace Ogre {
 				, WGL_CONTEXT_PROFILE_MASK_ARB, WGL_CONTEXT_CORE_PROFILE_BIT_ARB,
 				0
 			};
-
-			mGlrc = wglCreateContextAttribsARB(mHDC, old_context, attribList);
+			
+			PFNWGLCREATECONTEXTATTRIBSARBPROC func = (PFNWGLCREATECONTEXTATTRIBSARBPROC)wglGetProcAddress("wglCreateContextAttribsARB");
+			mGlrc = func(mHDC, old_context, attribList);
 
             if (!mGlrc)
                 OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR, 

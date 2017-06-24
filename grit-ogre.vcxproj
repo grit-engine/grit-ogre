@@ -66,13 +66,13 @@
     <ClCompile Include="OgreMain\src\OgreDualQuaternion.cpp" />
     <ClCompile Include="OgreMain\src\OgreHardwareCounterBuffer.cpp" />
     <ClCompile Include="OgreMain\src\OgreHardwareUniformBuffer.cpp" />
+    <ClCompile Include="OgreMain\src\OgreMurmurHash3.cpp" />
     <ClCompile Include="OgreMain\src\WIN32\OgreOptimisedUtilDirectXMath.cpp" />
     <ClCompile Include="RenderSystems\Direct3D9\src\OgreDxErr.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\gl3w.c" />
     <ClCompile Include="RenderSystems\GL3Plus\src\GLSL\OgreGLSLExtSupport.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\GLSL\OgreGLSLMonolithicProgram.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\GLSL\OgreGLSLMonolithicProgramManager.cpp" />
-    <ClCompile Include="RenderSystems\GL3Plus\src\GLSL\OgreGLSLPreprocessor.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\GLSL\OgreGLSLProgram.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\GLSL\OgreGLSLProgramManager.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\GLSL\OgreGLSLSeparableProgram.cpp" />
@@ -80,7 +80,6 @@
     <ClCompile Include="RenderSystems\GL3Plus\src\GLSL\OgreGLSLShader.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\GLSL\OgreGLSLShaderFactory.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\GLSL\OgreGLSLShaderManager.cpp" />
-    <ClCompile Include="RenderSystems\GL3Plus\src\OgreGL3PlusContext.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\OgreGL3PlusDefaultHardwareBufferManager.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\OgreGL3PlusDepthBuffer.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\OgreGL3PlusEngineDll.cpp" />
@@ -98,16 +97,12 @@
     <ClCompile Include="RenderSystems\GL3Plus\src\OgreGL3PlusPixelFormat.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\OgreGL3PlusPlugin.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\OgreGL3PlusRenderSystem.cpp" />
-    <ClCompile Include="RenderSystems\GL3Plus\src\OgreGL3PlusRenderTexture.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\OgreGL3PlusRenderToVertexBuffer.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\OgreGL3PlusSupport.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\OgreGL3PlusTexture.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\OgreGL3PlusTextureBuffer.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\OgreGL3PlusTextureManager.cpp" />
     <ClCompile Include="RenderSystems\GL3Plus\src\OgreGL3PlusVertexArrayObject.cpp" />
-    <ClCompile Include="RenderSystems\GL3Plus\src\windowing\win32\OgreWin32Context.cpp" />
-    <ClCompile Include="RenderSystems\GL3Plus\src\windowing\win32\OgreWin32GLSupport.cpp" />
-    <ClCompile Include="RenderSystems\GL3Plus\src\windowing\win32\OgreWin32Window.cpp" />
     <ClCompile Include="OgreMain\src\OgreAlignedAllocator.cpp" />
     <ClCompile Include="OgreMain\src\OgreAnimable.cpp" />
     <ClCompile Include="OgreMain\src\OgreAnimation.cpp" />
@@ -325,6 +320,17 @@
     <ClCompile Include="OgreMain\src\OgreWindowEventUtilities.cpp" />
     <ClCompile Include="OgreMain\src\OgreWireBoundingBox.cpp" />
     <ClCompile Include="OgreMain\src\OgreWorkQueue.cpp" />
+    <ClCompile Include="RenderSystems\GLSupport\src\GLSL\OgreGLSLPreprocessor.cpp" />
+    <ClCompile Include="RenderSystems\GLSupport\src\GLSL\OgreGLSLProgramCommon.cpp" />
+    <ClCompile Include="RenderSystems\GLSupport\src\GLSL\OgreGLSLShaderCommon.cpp" />
+    <ClCompile Include="RenderSystems\GLSupport\src\OgreGLHardwarePixelBufferCommon.cpp" />
+    <ClCompile Include="RenderSystems\GLSupport\src\OgreGLRenderSystemCommon.cpp" />
+    <ClCompile Include="RenderSystems\GLSupport\src\OgreGLRenderTexture.cpp" />
+    <ClCompile Include="RenderSystems\GLSupport\src\OgreGLTextureCommon.cpp" />
+    <ClCompile Include="RenderSystems\GLSupport\src\win32\OgreWin32Context.cpp" />
+    <ClCompile Include="RenderSystems\GLSupport\src\win32\OgreWin32GLSupport.cpp" />
+    <ClCompile Include="RenderSystems\GLSupport\src\win32\OgreWin32RenderTexture.cpp" />
+    <ClCompile Include="RenderSystems\GLSupport\src\win32\OgreWin32Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OgreMain\include\asm_math.h" />
